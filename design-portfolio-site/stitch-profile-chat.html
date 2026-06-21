@@ -1,0 +1,345 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>WhatsApp Business - AI Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#005047",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-primary": "#3de273",
+                    "outline": "#6c7b6b",
+                    "secondary-container": "#a5ede0",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#3c4a3d",
+                    "primary-fixed": "#66ff8e",
+                    "on-surface": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "error": "#ba1a1a",
+                    "secondary": "#075e54",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#226e63",
+                    "tertiary-fixed": "#8ff4e3",
+                    "tertiary": "#006b5f",
+                    "primary-fixed-dim": "#3de273",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#002109",
+                    "tertiary-fixed-dim": "#72d8c8",
+                    "outline-variant": "#bbcbb9",
+                    "on-primary-fixed-variant": "#005322",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-background": "#1a1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#005523",
+                    "primary": "#075e54",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#25d366",
+                    "on-secondary-fixed": "#00201c",
+                    "secondary-fixed-dim": "#8cd4c7",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-fixed": "#a8f0e3",
+                    "surface-tint": "#006d2f",
+                    "on-secondary-fixed-variant": "#005047",
+                    "tertiary-container": "#63c9b9",
+                    "on-tertiary-container": "#005249",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-fixed": "#00201c",
+                    "surface-container": "#eeeeee",
+                    "surface-dim": "#dadada",
+                    "background": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "wa-chat-bg": "#efeae2",
+                    "wa-bubble-user": "#dcf8c6",
+                    "wa-bubble-ai": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "16px",
+                    "xl": "24px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            -webkit-font-smoothing: antialiased
+        }
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: #efeae2;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 0 12px #1a1c1c, 0 0 0 14px #6c7b6b
+        }
+        .status-bar {
+            height: 44px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #075E54;
+        }
+        .chat-bg {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDuJSPGH1UmKTDsJ2t11h2fuiuRXDZZ5GL59MAnsZxaQzk4M7YsirUG_E9FVCm-orNsBZ7MVg-W6_3sL0Nxpy71ziS_voFVF7YGD8Dr_pn6CaHj8AdHYZaR6glVS_wBWaIB5tYeBWMSqvIoREJNCT04AeGG19-LY3cLyrOjdMir77vNhBNdAAcL6XooAcSMGz3OTNt_SOL-ajtcZWF9VZWVxe_Sem_h6AJ3eKMz7gVSPtpevNg2A4ie);
+            background-repeat: repeat;
+            background-size: 400px;
+            background-color: #efeae2
+        }
+        .message-bubble-left {
+            position: relative;
+            background: white;
+            border-radius: 0 12px 12px 12px
+        }
+        .message-bubble-right {
+            position: relative;
+            background: #dcf8c6;
+            border-radius: 12px 0 12px 12px
+        }
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none
+        }
+    </style>
+<style id="fit-override">
+  html,body{margin:0 !important;background:#efeae2 !important;}
+  .phone-container{width:100% !important;height:100dvh !important;max-width:none !important;border-radius:0 !important;margin:0 !important;box-shadow:none !important;border:0 !important;}
+</style>
+</head>
+<body style="background-color: rgb(243, 243, 244); margin: 0px; display: block;" class="">
+<div class="phone-container flex flex-col mx-auto mt-4">
+<!-- Status Bar -->
+<div class="status-bar text-white">
+<span class="">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- Standardized Top App Bar -->
+<header class="w-full bg-[#075E54] text-white shadow-sm flex justify-between items-center px-4 py-2 z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined cursor-pointer">arrow_back</span>
+<div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="A professional circular profile avatar for a digital AI assistant, featuring a stylized brain or circuit pattern in glowing green and deep teal colors against a clean white backdrop, evoking trust and high-tech capabilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uzEgJTQogIEqrEN0-RO3UhAfCZOu9hUoaRWBXSbuj3p7nuFezqwqujQNlPjxTlnq4uMAPtkErVcefrXpewiMR8BIAU0CBRFZo3hUyoiqW8ypI-LO3yi2xLb8Y9E2fMI4DzVoAoIJAWV4lEDKA9c9FCH8DYnKFSIDNMeKweVjeQsRHQFFqMzyuQnocjtKkBJ6vU6si_sqsha4YvIB1vEEN7a0xzRNu3L9dT4ruCJPO5t3S37DzX3w">
+</div>
+<div>
+<h1 class="font-semibold text-lg leading-tight">Meta AI</h1>
+<p class="text-[11px] opacity-90">Business Agent</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer text-2xl">videocam</span>
+<span class="material-symbols-outlined cursor-pointer text-2xl">call</span>
+<span class="material-symbols-outlined cursor-pointer text-2xl">more_vert</span>
+</div>
+</header>
+<!-- Chat Area -->
+<main class="flex-1 overflow-y-auto chat-bg p-margin-mobile space-y-3 pb-[180px]" style="background-image: url(&quot;https://www.transparenttextures.com/patterns/cubes.png&quot;); background-blend-mode: overlay; background-color: rgb(239, 234, 226);">
+<!-- Agent Message: Initial -->
+<div class="flex gap-2 max-w-[85%]">
+<div class="message-bubble-left p-md shadow-sm">
+<p class="font-body-md text-on-surface">Hello Suchi! I'm your Meta AI assistant. Let's get your business profile ready for your customers. First, what's your business name?</p>
+<div class="flex justify-end mt-1">
+<p class="text-[10px] text-outline">10:02 AM</p>
+</div>
+</div>
+</div>
+<!-- User Response -->
+<div class="flex justify-end">
+<div class="message-bubble-right p-md shadow-sm max-w-[85%]">
+<p class="font-body-md text-on-surface">Suchi's Chai Trail</p>
+<div class="flex items-center justify-end gap-1 mt-1">
+<p class="text-[10px] text-outline-variant">10:02 AM</p>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+<!-- Agent Message: Category -->
+<div class="flex gap-2 max-w-[85%]">
+<div class="message-bubble-left p-md shadow-sm">
+<p class="font-body-md text-on-surface">Great name! ☕️ What category best describes your business?</p>
+<div class="flex justify-end mt-1">
+<p class="text-[10px] text-outline">10:03 AM</p>
+</div>
+</div>
+</div>
+<!-- User Response -->
+<div class="flex justify-end">
+<div class="message-bubble-right p-md shadow-sm max-w-[85%]">
+<p class="font-body-md text-on-surface">Cafe &amp; Tea</p>
+<div class="flex items-center justify-end gap-1 mt-1">
+<p class="text-[10px] text-outline-variant">10:03 AM</p>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+<!-- Profile Preview Card (Interactive Inline Component) -->
+<div class="mx-2 bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden transform transition-all duration-300">
+<div class="bg-[#e7f3f1] p-sm flex items-center gap-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[18px]">visibility</span>
+<span class="font-label-md text-label-md text-secondary">Live Profile Preview</span>
+</div>
+<div class="p-md flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center border-2 border-dashed border-outline-variant/50">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A modern, high-end cafe logo featuring a stylized steaming cup of tea with organic tea leaves integrated into the steam. The color palette uses deep forest green and soft gold, set against a pristine minimalist background, emphasizing artisanal quality and freshness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsd9x0Y1YIxk5_zSsul1VapeP8RIgVeJHNgH_OP_HHy0anhqt0RnAHlChu4uCk9tST56JPJwoBL8wAfUvK4Iv7JDPutLy-T9Nhghy7JtiAlHp7eg0L9-wL8uIY839RAneEyNB5yAqWz_ZDeIJIo6bnd2puHRNRQA2VdM96zoZo5wzipxIOOs8Oh9YUOYZYTnhBc3NLw5jqB3RICy5k_RxyKw7r6mFTBB_55RVIeLibZpDXDw2IPoXS">
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-on-surface leading-tight">Suchi's Chai Trail</h3>
+<p class="font-body-md text-outline">Cafe &amp; Tea</p>
+<div class="mt-2 flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm">Hours not set</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Message: Asking for Hours -->
+<div class="flex gap-2 max-w-[85%]">
+<div class="message-bubble-left p-md shadow-sm">
+<p class="font-body-md text-on-surface">Almost there! What are your business hours? This helps customers know when they can reach out to you.</p>
+<div class="flex justify-end mt-1">
+<p class="text-[10px] text-outline">10:04 AM</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Interaction Area -->
+<div class="absolute bottom-0 w-full z-20 bg-transparent pointer-events-none">
+<!-- Suggestions Chips -->
+<div class="flex gap-2 overflow-x-auto px-margin-mobile py-2 no-scrollbar pointer-events-auto">
+<button class="flex-none bg-[#075E54] text-white font-label-md text-label-md px-4 py-2 rounded-full shadow-md active:bg-[#064a42] transition-colors whitespace-nowrap">
+                    9 AM - 6 PM
+                </button>
+<button class="flex-none bg-[#075E54] text-white font-label-md text-label-md px-4 py-2 rounded-full shadow-md active:bg-[#064a42] transition-colors whitespace-nowrap">
+                    Mon - Fri
+                </button>
+<button class="flex-none bg-[#075E54] text-white font-label-md text-label-md px-4 py-2 rounded-full shadow-md active:bg-[#064a42] transition-colors whitespace-nowrap">
+                    Custom...
+                </button>
+<button class="flex-none bg-[#075E54] text-white font-label-md text-label-md px-4 py-2 rounded-full shadow-md active:bg-[#064a42] transition-colors whitespace-nowrap">
+                    Always Open
+                </button>
+</div>
+<!-- WhatsApp Style Composer Area -->
+<div class="bg-[#efeae2]/90 backdrop-blur-sm pt-2 pointer-events-auto">
+<div class="px-2 flex items-end gap-2 mb-1">
+<div class="flex-1 bg-white rounded-[24px] flex items-end px-3 py-1.5 shadow-sm min-h-[48px]">
+<span class="material-symbols-outlined text-[#8696a0] cursor-pointer mb-1.5 mr-2">sentiment_satisfied</span>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-md placeholder:text-[#8696a0] resize-none py-1.5 leading-tight" placeholder="Type business hours..." rows="1"></textarea>
+<span class="material-symbols-outlined text-[#8696a0] cursor-pointer mb-1.5 ml-2 rotate-45">attach_file</span>
+<span class="material-symbols-outlined text-[#8696a0] cursor-pointer mb-1.5 ml-3">photo_camera</span>
+</div>
+<div class="w-[48px] h-[48px] bg-[#075E54] rounded-full flex items-center justify-center text-white cursor-pointer shadow-sm active:scale-95 transition-transform flex-shrink-0">
+<span class="material-symbols-outlined">mic</span>
+</div>
+</div>
+<!-- Home Indicator -->
+<div class="flex justify-center items-center h-6">
+<div class="w-32 h-1 bg-on-surface/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Simple logic for horizontal scroll dragging on mobile simulation
+        const scrollContainer = document.querySelector('.no-scrollbar');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Auto-expand textarea (simplified)
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Toggle focus state
+        textarea.addEventListener('focus', () => {
+            textarea.parentElement.classList.add('ring-1', 'ring-[#075E54]/20');
+        });
+        textarea.addEventListener('blur', () => {
+            textarea.parentElement.classList.remove('ring-1', 'ring-[#075E54]/20');
+        });
+    </script>
+
+
+</body></html>

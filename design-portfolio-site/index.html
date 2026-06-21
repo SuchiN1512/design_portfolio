@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suchismita Naik — Product & Interaction Designer</title>
+<style>
+  :root{
+    /* 2026 trending soft pastels: ivory, lavender mist, powder blue, pale mint, butter, peach */
+    --bg:#fbf8f3; --bg-soft:#f1eefb; --card:#ffffff; --line:#eae4dc;
+    --ink:#2d2b35; --ink-soft:#5d626e; --ink-dim:#9aa0aa;
+    --accent:#7b6ef0; --accent-2:#2fa993; --accent-warm:#e0875f;
+    --lav:#ded7ff; --blue:#cfe6ff; --mint:#d4f0e3; --butter:#fbecb8; --peach:#ffded0;
+    --radius:16px; --max:1080px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{line-height:1.15;margin:0;font-weight:680;letter-spacing:-0.02em;}
+  p{margin:0 0 1em;}
+  .accent{color:var(--accent);}
+  .accent-2{color:var(--accent-2);}
+  .muted{color:var(--ink-soft);}
+  .dim{color:var(--ink-dim);}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(251,248,243,0.78);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo{font-weight:760;letter-spacing:-0.03em;font-size:18px;}
+  .logo b{color:var(--accent);}
+  .navlinks{display:flex;gap:22px;font-size:14px;}
+  .navlinks a{color:var(--ink-soft);transition:color .2s;}
+  .navlinks a:hover{color:var(--ink);}
+  @media(max-width:680px){.navlinks{display:none;}}
+
+  /* HERO */
+  header.hero{padding:88px 0 56px;border-bottom:1px solid var(--line);background:
+     radial-gradient(900px 400px at 12% -10%, rgba(190,176,255,0.55), transparent 62%),
+     radial-gradient(760px 380px at 92% -5%, rgba(174,214,255,0.55), transparent 58%),
+     radial-gradient(680px 420px at 60% 110%, rgba(196,238,219,0.45), transparent 60%);}
+  .eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:22px;}
+  .hero h1{font-size:clamp(34px,6vw,60px);max-width:14ch;}
+  .hero .lede{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:60ch;margin-top:24px;}
+  .hero .lede strong{color:var(--ink);font-weight:620;}
+  .hero .meta{margin-top:26px;font-size:14px;color:var(--ink-dim);}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;}
+  .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:560;border:1px solid var(--line);transition:.2s;}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.primary:hover{filter:brightness(1.08);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;}
+  .stat .n{font-size:30px;font-weight:720;letter-spacing:-0.03em;}
+  .stat .l{font-size:13px;color:var(--ink-dim);margin-top:4px;}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+  /* SECTIONS */
+  section{padding:72px 0;border-bottom:1px solid var(--line);}
+  .sec-head{margin-bottom:34px;}
+  .sec-kicker{font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .sec-head h2{font-size:clamp(26px,3.6vw,38px);max-width:20ch;}
+  .sec-head p{margin-top:14px;color:var(--ink-soft);max-width:64ch;}
+
+  /* STORY two-col */
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:760px){.story-grid{grid-template-columns:1fr;}}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
+  .phase .tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .phase.h .tag{color:var(--accent-2);}
+  .phase.s .tag{color:var(--accent);}
+  .phase h3{font-size:20px;margin:10px 0 8px;}
+  .phase p{color:var(--ink-soft);font-size:15px;margin:0;}
+  .phase ul{margin:14px 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;}
+  .phase li{margin-bottom:6px;}
+
+  /* WORK CARDS */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .card .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+  .chip{font-size:11.5px;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line);color:var(--ink-soft);}
+  .chip.hot{border-color:rgba(124,140,255,.5);color:var(--accent);}
+  .card h3{font-size:20px;margin-bottom:10px;}
+  .card p{color:var(--ink-soft);font-size:14.5px;flex-grow:1;}
+  .card .link{margin-top:16px;font-size:14px;color:var(--accent);font-weight:560;}
+  /* whole card clickable via stretched link */
+  .card{cursor:pointer;}
+  .card .link::after{content:"";position:absolute;inset:0;z-index:1;}
+  .card .role{font-size:12.5px;color:var(--ink-dim);margin-bottom:14px;}
+  /* card banner image */
+  .card-img{margin:-26px -26px 18px;height:260px;overflow:hidden;border-bottom:1px solid var(--line);background:#f1eefb;}
+  .card-img img,.card-img svg{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+  /* featured card: text left, square image right */
+  .card.feat-row{flex-direction:row;align-items:flex-start;gap:28px;}
+  .feat-row .feat-text{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .feat-row .feat-sq{flex-shrink:0;width:360px;max-width:100%;}
+  .feat-row .feat-sq img,.feat-row .feat-sq svg{width:100%;height:auto;display:block;}
+  @media(max-width:680px){.card.feat-row{flex-direction:column;} .feat-row .feat-sq{width:100%;}}
+  /* responsibilities + impact blocks */
+  .ri{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 2px;border-top:1px solid var(--line);padding-top:14px;}
+  .ri-lab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:7px;}
+  .ri-block.impact .ri-lab{color:var(--accent-2);}
+  .ri-block ul{margin:0;padding-left:15px;}
+  .ri-block li{font-size:13px;color:var(--ink-soft);margin-bottom:6px;line-height:1.45;}
+  .ri-block li b{color:var(--ink);font-weight:650;}
+  @media(max-width:520px){.ri{grid-template-columns:1fr;gap:12px;}}
+
+  /* PLACEHOLDER / NEW PROJECT CARDS */
+  .new-card{background:linear-gradient(180deg,rgba(124,140,255,.06),transparent);border:1px dashed var(--line);}
+  .new-card .status{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-warm);border:1px solid rgba(255,154,107,.4);border-radius:999px;padding:3px 9px;margin-bottom:14px;}
+  .brief{margin-top:14px;border-top:1px solid var(--line);padding-top:14px;}
+  .brief dt{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin-top:10px;}
+  .brief dd{margin:3px 0 0;font-size:14px;color:var(--ink-soft);}
+  .brief dd:first-of-type{margin-top:0;}
+  .targets{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;}
+  .targets .t{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line);color:var(--accent-2);}
+
+  /* TIMELINE */
+  .tl{display:grid;grid-template-columns:120px 1fr;gap:0;}
+  @media(max-width:680px){.tl{grid-template-columns:80px 1fr;}}
+  .tl .row{display:contents;}
+  .tl .yr{color:var(--ink-dim);font-size:14px;padding:16px 0;border-top:1px solid var(--line);}
+  .tl .body{padding:16px 0;border-top:1px solid var(--line);}
+  .tl .body h3{font-size:17px;}
+  .tl .body .org{color:var(--accent);font-size:14px;margin:2px 0 6px;}
+  .tl .body p{color:var(--ink-soft);font-size:14px;margin:0;}
+  .tl .body .kind{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);}
+
+  /* CAPABILITIES */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:760px){.caps{grid-template-columns:1fr;}}
+  .cap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+  .cap h3{font-size:17px;margin-bottom:10px;}
+  .cap p{font-size:14px;color:var(--ink-soft);margin:0;}
+  .cap .tools{margin-top:14px;font-size:13px;color:var(--ink-dim);}
+
+  /* CONTACT */
+  .contact{text-align:center;background:
+    radial-gradient(620px 300px at 30% 0%, rgba(190,176,255,.5), transparent 62%),
+    radial-gradient(620px 300px at 75% 10%, rgba(196,238,219,.5), transparent 62%);}
+  .contact h2{font-size:clamp(26px,4vw,40px);max-width:18ch;margin:0 auto 18px;}
+  .contact p{color:var(--ink-soft);max-width:52ch;margin:0 auto 28px;}
+  footer{padding:32px 0;color:var(--ink-dim);font-size:13px;text-align:center;}
+  .note{background:#fff7e6;border:1px solid #f1e3bf;border-left:3px solid var(--accent-warm);border-radius:10px;padding:14px 18px;font-size:13.5px;color:#6b5f44;margin-bottom:30px;}
+  /* gentle pastel washes per section for trending soft-pastel feel */
+  #story{background:linear-gradient(180deg, rgba(207,230,255,.38), transparent 70%);}
+  #strategy{background:linear-gradient(180deg, rgba(212,240,227,.45), transparent 70%);}
+  #next{background:linear-gradient(180deg, rgba(255,222,208,.40), transparent 72%);}
+  #path{background:linear-gradient(180deg, rgba(251,236,184,.38), transparent 70%);}
+  #caps-sec{background:linear-gradient(180deg, rgba(222,215,255,.42), transparent 70%);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">SUCHI<b>.</b>NAIK</div>
+    <div class="navlinks">
+      <a href="#story">Story</a>
+      <a href="#work">AI products</a>
+      <a href="#strategy">Work</a>
+      <a href="#path">Path</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Product &amp; Service Designer · UX Researcher · Design Strategist · AI Products · Data storytelling</div>
+    <h1>Suchismita Naik</h1>
+    <p class="lede">I work at the seam where <strong>human-centered research, product craft, and AI meet</strong> — turning real human insight into high-fidelity products that ship. Research and craft, in one person.</p>
+    <p style="font-size:15.5px;color:var(--accent);font-weight:560;max-width:62ch;margin-top:-4px;">An AI-native designer — I design <em>for</em> AI (agents, trust, non-deterministic interaction) and <em>with</em> AI (GenAI prototyping &amp; vibe-coded interactive demos).</p>
+    <div class="meta">Designer · ex-Meta &amp; Microsoft · M.Des, NID · Menlo Park, CA</div>
+    <div class="cta-row">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn ghost" href="mailto:naik.suchismita@gmail.com">Get in touch</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">12 yrs</div><div class="l">design &amp; design strategy</div></div>
+      <div class="stat"><div class="n">Millions</div><div class="l">of users on shipped products</div></div>
+      <div class="stat"><div class="n">~7 yrs</div><div class="l">hands-on product &amp; IxD</div></div>
+      <div class="stat"><div class="n">Awarded</div><div class="l">data-viz exhibited at EuroVis</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">The short version</div>
+      <h2>Two halves of one designer</h2>
+      <p>I started as a product and service designer — shipping apps, services, visual systems, and interfaces. Then I went deep on understanding people and AI, so that today I design from a rare vantage point: a maker who knows exactly why a decision is right before the first pixel.</p>
+    </div>
+    <div class="story-grid">
+      <div class="phase h">
+        <div class="tag">2014 – 2021 · The craft</div>
+        <h3>Seven years hands-on</h3>
+        <p>Designing and shipping consumer products end to end — user flows, wireframes, prototypes, high-fidelity UI, and the design systems that hold them together.</p>
+        <ul>
+          <li>Shipped e-consultation &amp; e-prescription for India's largest health platform</li>
+          <li>Launched a public civic data product + design system</li>
+          <li>Led information design; built repeatable visual frameworks</li>
+          <li>Award-winning narrative data visualization</li>
+        </ul>
+      </div>
+      <div class="phase s">
+        <div class="tag">2021 – now · The strategy</div>
+        <h3>Five years design strategy</h3>
+        <p>Shaping what AI products should <em>be</em> — modality, behavior, trust, monetization — and translating ambiguous AI possibility into concrete design direction teams can build.</p>
+        <ul>
+          <li>Defined North-Star AI product direction across two markets at Meta</li>
+          <li>Redirected an AI product's design &amp; monetization model</li>
+          <li>Designed for non-deterministic, agentic AI behavior</li>
+          <li>Published research on human–AI trust &amp; mental models</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HANDS-ON DESIGN WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Selected work · AI</div>
+      <h2>AI product design and strategy</h2>
+      <p>The AI half of my practice: defining what AI products should <em>be</em>, prototyping how people and intelligent systems interact, and shaping product direction, behavior, and trust — research through to shipped design.</p>
+    </div>
+    <div class="grid">
+
+      <div class="card feat-row" style="grid-column:1/-1;border-color:var(--accent);background:#fff;">
+        <div class="feat-text">
+        <div class="badges"><span class="chip hot">AI · Multi-agent</span><span class="chip">Research-through-design</span><span class="chip">Vibe-coded prototypes</span><span class="chip">Interactive</span></div>
+        <div class="role">Lead Designer &amp; Researcher · PhD, Purdue · 2021–26</div>
+        <h3>Designing AI agents that strengthen belonging — not replace it</h3>
+        <p>My most complete end-to-end case study: an ambiguous human problem taken from research through to clickable, Discord-style AI product prototypes — bridging design strategy and hands-on craft.</p>        <a class="link" href="case-multi-agent-belonging.html">Open the interactive case study →</a>
+        </div>
+        <div class="feat-sq"><img loading="lazy" src="thumb-belonging.svg" alt="Multi-agent design patterns for belonging in online communities"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" src="thumb-meta-northstar.svg" alt="North Star AI vision for WhatsApp Business"></div>
+        <div class="badges"><span class="chip hot">AI Product Strategy</span><span class="chip">Two markets</span><span class="chip">Vibe-coded prototypes</span></div>
+        <div class="role">Design Strategy / UX · Meta (WhatsApp)</div>
+        <h3>Defining the North-Star AI vision for WhatsApp Business</h3>
+        <p>A two-market study that decided what AI should <em>be</em> for small businesses on WhatsApp.</p>        <a class="link" href="cs-meta-northstar.html">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" src="thumb-meta-monetization.svg" alt="Cross-platform concept testing for Business AI monetization"></div>
+        <div class="badges"><span class="chip hot">Design Direction</span><span class="chip">Monetization</span></div>
+        <div class="role">Design Strategy / UX · Meta · Cross-platform</div>
+        <h3>Cross-platform concept testing for Business-AI monetization</h3>
+        <p>Pressure-tested the subscription model across WhatsApp (Mexico) and Messenger (Philippines) — validating, then redirecting, the monetization direction before it shipped.</p>        <a class="link" href="cs-meta-monetization.html">Read the case study →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN STRATEGY -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Selected work</div>
+      <h2>Products, Services &amp; design systems I built</h2>
+      <p>Consumer products and services taken from concept to launch, plus the visual and data-design craft underneath them — across mobile, web, and tablet.</p>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" style="object-position:center top;" src="https://static.wixstatic.com/media/2e8b7f_384135e4c21248729e2af74b30d0aad2~mv2_d_4001_2250_s_2.jpg/v1/fill/w_1000,h_460,al_c,q_85,enc_auto/1mg-hero.jpg" alt="1mg e-healthcare project hero banner"></div>
+        <div class="badges"><span class="chip hot">Product / IxD</span><span class="chip">Service Design</span><span class="chip">Conversational UX</span></div>
+        <div class="role">Product Designer · 1mg (Tata 1mg) · 1 yr</div>
+        <h3>Redesigning e-consultation for India's largest health platform</h3>
+        <p>End-to-end redesign of the two-sided consult + e-prescription experience for patients and doctors.</p>        <a class="link" href="cs-1mg-healthcare.html">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_6d1ddff0e4df493cb029c490b5353100~mv2_d_4806_2148_s_2.png/v1/fill/w_900,h_400,al_c,q_85,enc_auto/obi.png" alt="Open Budgets India visual system"></div>
+        <div class="badges"><span class="chip hot">Product Design</span><span class="chip">Design System</span><span class="chip">Data Viz</span></div>
+        <div class="role">Designer-Researcher (solo) · CBGA · 8 mo</div>
+        <h3>Open Budgets India — portal &amp; story generator</h3>
+        <p>Sole designer-researcher on a civic-tech data product that made public budgets legible to citizens.</p>        <a class="link" href="cs-open-budgets.html">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_edd076e7c8d3462fa09a3ffe7e57e2f3~mv2_d_4887_3530_s_4_2.png/v1/fill/w_900,h_460,al_c,q_85,enc_auto/sensex.png" alt="Sensex narrative data visualization"></div>
+        <div class="badges"><span class="chip hot">Visual Design</span><span class="chip">Narrative Viz</span><span class="chip">Award</span></div>
+        <div class="role">Information Designer · Honorable mention</div>
+        <h3>Twenty years of the Sensex, told as a story</h3>
+        <p>An interactive narrative visualization turning five tangled economic datasets into one legible story.</p>        <a class="link" href="cs-sensex.html">Read the case study →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_a3544563bfc142a5b0645aa9a0a183bb~mv2.png/v1/fill/w_900,h_460,al_c,q_85,enc_auto/forever27.png" alt="The Forever 27 Club vinyl-record visualization"></div>
+        <div class="badges"><span class="chip hot">Visual Design</span><span class="chip">Data Storytelling</span></div>
+        <div class="role">Information Designer · 4 wks</div>
+        <h3>The Forever 27 Club</h3>
+        <p>An exploratory visualization that uses metaphor and interaction to turn hard data into empathy.</p>        <a class="link" href="cs-forever27.html">Read the case study →</a>
+      </div>
+
+      <div class="card feat-row" style="grid-column:1/-1;">
+        <div class="feat-text">
+        <div class="badges"><span class="chip hot">Service / Systems Design</span><span class="chip">Design Research</span></div>
+        <div class="role">Design Researcher · TCS DISQ × MIT Media Lab · 10 wks</div>
+        <h3>Zero loss of life from blood shortage</h3>
+        <p>Field research that exposed a predictable supply–demand gap, then a service designed to close it.</p>        <a class="link" href="cs-blood-bank.html">Read the case study →</a>
+        </div>
+        <div class="feat-sq"><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_d2c02ab071184c3681074cdfb00f0e39~mv2_d_2518_2063_s_2.png/v1/fill/w_900,h_740,al_c,q_85,enc_auto/bloodbank.png" alt="Blood-bank smart-inventory portal dashboard"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">The path here</div>
+      <h2>From shipping pixels to shaping AI products</h2>
+    </div>
+    <div class="tl">
+      <div class="row"><div class="yr">2025 — now</div><div class="body"><div class="kind">Design Strategy</div><h3>Design Strategy / UX — AI products</h3><div class="org">Meta · Menlo Park, CA</div><p>Shaping AI product direction for WhatsApp Business — modality, behavior, trust, and monetization across markets.</p></div></div>
+      <div class="row"><div class="yr">2024</div><div class="body"><div class="kind">Design Strategy</div><h3>UX — Multi-agent GenAI</h3><div class="org">Microsoft Research · Redmond, WA</div><p>Defined interaction direction for early adopters of multi-agent generative AI tools.</p></div></div>
+      <div class="row"><div class="yr">2021 — 25</div><div class="body"><div class="kind">Design Strategy</div><h3>PhD, HCI / UX — Human–AI interaction</h3><div class="org">Purdue University · Andrews Fellow</div><p>Multi-agent design patterns, human–AI trust, and mental models — the strategic foundation under AI product design.</p></div></div>
+      <div class="row"><div class="yr">2020 — 21</div><div class="body"><div class="kind">Hands-on design</div><h3>Lead Designer</h3><div class="org">Gramener · Bangalore</div><p>Led data-product design — turning client data into decision-driving visual interfaces and systems.</p></div></div>
+      <div class="row"><div class="yr">2018 — 20</div><div class="body"><div class="kind">Hands-on design</div><h3>Design Strategist</h3><div class="org">Conduent Labs (Xerox Research Centre India)</div><p>Bridged emerging technology and real-world user needs through applied design.</p></div></div>
+      <div class="row"><div class="yr">2016 — 18</div><div class="body"><div class="kind">Hands-on design</div><h3>UX / Product Designer</h3><div class="org">1mg Technologies · Gurugram</div><p>Designed and shipped the patient–doctor e-healthcare ecosystem, including conversational e-consultation.</p></div></div>
+      <div class="row"><div class="yr">2014 — 16</div><div class="body"><div class="kind">Foundation</div><h3>M.Des — Information &amp; UX Design</h3><div class="org">National Institute of Design</div><p>Design research, information design, and data storytelling.</p></div></div>
+      <div class="row"><div class="yr">2008 — 13</div><div class="body"><div class="kind">Foundation</div><h3>B.E. (Hons.) &amp; M.Sc. (Hons.)</h3><div class="org">BITS Pilani</div><p>The analytical bedrock under the design.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="caps-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">How I work</div>
+      <h2>Capabilities &amp; tools</h2>
+    </div>
+    <div class="caps">
+      <div class="cap">
+        <h3>Design craft</h3>
+        <p>User flows, wireframes, interactive prototypes, and high-fidelity UI across mobile, tablet, and web — from concept to spec delivery.</p>
+        <div class="tools">Figma · Adobe Creative Suite · prototyping · design systems</div>
+      </div>
+      <div class="cap">
+        <h3>AI &amp; emerging tech</h3>
+        <p>Designing for non-deterministic, agentic AI; building prototypes with GenAI / vibe-coding tools; comfortable in fast-moving, ambiguous AI spaces.</p>
+        <div class="tools">GenAI tooling · agentic UX · conversational UI · AI-trust patterns</div>
+      </div>
+      <div class="cap">
+        <h3>Strategy &amp; storytelling</h3>
+        <p>Translating abstract concepts into clear design rationale, and using data &amp; narrative to challenge product thinking and align teams.</p>
+        <div class="tools">Design strategy · data viz · rationale &amp; presentation · research synthesis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's design what AI products should feel like.</h2>
+    <p>Building an AI product, an interaction-design practice, or just want to talk craft and humans? I'd love to hear from you.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn primary" href="mailto:naik.suchismita@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/suchismitanaik/">LinkedIn</a>
+      <a class="btn ghost" href="https://www.behance.net/Suchismitanaik">Behance</a>
+      <a class="btn ghost" href="https://vimeo.com/suchismitanaik">Vimeo (motion)</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Designed as a living portfolio · Suchismita Naik · Product &amp; Interaction Designer
+</footer>
+
+</body>
+</html>

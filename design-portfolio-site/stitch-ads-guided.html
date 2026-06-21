@@ -1,0 +1,308 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Promote — Suchi's Tea House</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); }
+        }
+        .coach-mark-float {
+            animation: float 3s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "whatsapp-dark": "#075E54",
+                "on-surface-variant": "#3c4a3d",
+                "error-container": "#ffdad6",
+                "background": "#f9f9f9",
+                "primary-container": "#25d366",
+                "primary": "#075E54", /* Updated to consistent dark green */
+                "on-error": "#ffffff",
+                "inverse-surface": "#2f3131",
+                "secondary-fixed": "#a8f0e3",
+                "inverse-primary": "#3de273",
+                "secondary-fixed-dim": "#8cd4c7",
+                "primary-fixed-dim": "#3de273",
+                "surface": "#f9f9f9",
+                "surface-container-high": "#e8e8e8",
+                "on-primary-container": "#005523",
+                "tertiary-container": "#63c9b9",
+                "on-primary-fixed-variant": "#005322",
+                "surface-container-lowest": "#ffffff",
+                "surface-variant": "#e2e2e2",
+                "surface-container-highest": "#e2e2e2",
+                "on-primary-fixed": "#002109",
+                "secondary-container": "#a5ede0",
+                "on-tertiary-fixed": "#00201c",
+                "inverse-on-surface": "#f0f1f1",
+                "tertiary": "#006b5f",
+                "surface-tint": "#075E54",
+                "surface-dim": "#dadada",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed-variant": "#005047",
+                "on-secondary-container": "#226e63",
+                "outline-variant": "#bbcbb9",
+                "error": "#ba1a1a",
+                "surface-container-low": "#f3f3f4",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1a1c1c",
+                "surface-container": "#eeeeee",
+                "tertiary-fixed-dim": "#72d8c8",
+                "secondary": "#1c695f",
+                "outline": "#6c7b6b",
+                "on-tertiary-container": "#005249",
+                "primary-fixed": "#66ff8e",
+                "on-background": "#1a1c1c",
+                "tertiary-fixed": "#8ff4e3",
+                "on-secondary-fixed": "#00201c",
+                "surface-bright": "#f9f9f9",
+                "on-error-container": "#93000a",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#005047"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "16px",
+                "xl": "24px",
+                "full": "9999px"
+              },
+              "spacing": {
+                "sm": "8px",
+                "lg": "24px",
+                "xs": "4px",
+                "md": "16px",
+                "gutter": "16px",
+                "margin-desktop": "40px",
+                "xl": "32px",
+                "margin-mobile": "16px",
+                "base": "4px"
+              },
+              "fontFamily": {
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-md": ["Inter"]
+              },
+              "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- WhatsApp Framework: Status Bar (Themed) -->
+<div class="fixed top-0 left-0 w-full h-[24px] bg-[#075E54] z-[60] flex items-center justify-between px-6 text-white text-[12px] font-medium">
+<span class="">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- WhatsApp Framework: Sticky App Bar -->
+<header class="bg-[#075E54] text-white sticky top-0 z-50 pt-6">
+<div class="flex items-center justify-between px-4 h-[56px]">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined active:bg-white/10 p-2 rounded-full">arrow_back</button>
+<span class="font-headline-md text-headline-md">Promote</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mr-2">
+<span class="text-[11px] font-semibold opacity-80 uppercase tracking-widest">AI Tips</span>
+<button class="w-10 h-6 bg-white/20 rounded-full relative transition-colors duration-300" id="aiToggle" onclick="this.classList.toggle('bg-primary-container'); this.querySelector('div').classList.toggle('translate-x-4')">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 translate-x-4"></div>
+</button>
+</div>
+<button class="material-symbols-outlined active:bg-white/10 p-2 rounded-full">more_vert</button>
+</div>
+</div>
+</header>
+<main class="pb-[180px] px-4 pt-6 space-y-6 max-w-md mx-auto"> <!-- Increased padding-bottom to avoid overlap with sticky bottom actions -->
+<!-- Progress Bar Section -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-md text-headline-md text-[#075E54]">Ad Campaign Setup</h2>
+<span class="font-label-md text-label-md text-outline">Step 1 of 2</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/2 rounded-full"></div>
+</div>
+</div>
+<!-- Ad Preview Card (WhatsApp Style) -->
+<section class="space-y-2">
+<h3 class="font-label-md text-label-md text-outline-variant uppercase tracking-wider px-1">AD PREVIEW</h3>
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="relative aspect-video w-full bg-surface-container">
+<img alt="Masala Chai" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJD2Fr86d_V6Cc-cP7tRmZwr2TH13LtVfPy3fGpHudEiihOUwW7P0tQojZjXGo2N4hCdD5roDZrJhOo645moDBEaAxUZPu_uVE_NHHs6i-hFz1_cTqlvzHwKystSr6RhSVJCdW0hFTS-DI-ZaeJYOtFL_mRyDuuXcavPmNF_9t3BhbGtO4avjaAZXX_-kcbrjp6p8uIK2SCxaUNJZhClsrSEDHpzCakIyelDqUcRvB-6utXPo5cqCd">
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-[#075E54] text-[18px]">ads_click</span>
+<span class="font-label-sm text-label-sm text-[#075E54]">Click to WhatsApp</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<p class="font-body-md text-body-md text-on-surface">Experience the authentic taste of Suchi's Special Masala Chai. Now open for delivery!</p>
+<!-- Updated button to dark green -->
+<button class="w-full py-2.5 bg-[#075E54] text-white rounded-full font-label-md text-label-md flex items-center justify-center gap-2 active:opacity-90">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                    Send Message
+                </button>
+</div>
+</div>
+</section>
+<!-- Form Fields -->
+<div class="space-y-4">
+<!-- Goal -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant px-1">Campaign Goal</label>
+<div class="relative">
+<select class="w-full p-3 bg-white border border-outline-variant rounded-lg font-body-md text-body-md appearance-none focus:border-[#075E54] focus:ring-1 focus:ring-[#075E54] outline-none">
+<option>Get more messages</option>
+<option>Increase catalog views</option>
+<option>Drive website traffic</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Audience -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Audience</label>
+<button class="flex items-center gap-1 px-2.5 py-1 bg-secondary-container/30 text-secondary rounded-full font-label-sm text-label-sm hover:bg-secondary-container/50 transition-colors">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    Suggest audience
+                </button>
+</div>
+<div class="p-3 bg-white border border-outline-variant rounded-lg flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Nearby Customers</p>
+<p class="font-label-sm text-label-sm text-outline">Within 5km • Ages 18-55</p>
+</div>
+<button class="material-symbols-outlined text-outline p-1">edit</button>
+</div>
+</div>
+<!-- Budget - Highlighted for Coach Mark -->
+<div class="space-y-1.5 relative">
+<label class="font-label-md text-label-md text-on-surface-variant px-1">Daily Budget</label>
+<div class="relative ai-glow rounded-lg">
+<div class="absolute left-3 top-1/2 -translate-y-1/2 font-body-md text-body-md text-on-surface-variant">₹</div>
+<input class="w-full p-3 pl-7 bg-white border-2 border-primary-container rounded-lg font-body-md text-body-md focus:ring-0 outline-none" type="number" value="300">
+</div>
+<!-- Floating Tip / Coach Mark -->
+<div class="absolute -top-12 -right-1 z-20 coach-mark-float">
+<div class="p-3 rounded-xl rounded-tr-none shadow-lg text-[12px] font-medium max-w-[200px] relative leading-tight bg-[#075E54] text-white">
+                    ✨ ₹300/day reaches ~5,000 nearby customers — <span class="underline cursor-pointer">tap to apply</span>
+</div>
+<div class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-primary-container absolute -bottom-1.5 right-0 translate-x-[-4px]"></div>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant opacity-30 my-6">
+<!-- Broadcast Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-[#075E54]">Quick Broadcast</h3>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Premium</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Send a direct update to your recent customers about new tea blends.</p>
+<div class="bg-white border border-outline-variant rounded-xl p-4 space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">group</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-semibold text-on-surface">Recent Tea Lovers</p>
+<p class="font-label-sm text-label-sm text-outline">124 customers • Active in 30d</p>
+</div>
+<button class="material-symbols-outlined text-outline">chevron_right</button>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-dashed border-outline-variant">
+<p class="font-body-md text-body-md italic text-on-surface-variant leading-snug">"Hi! We just brewed a fresh batch of Hibiscus Zest. Ready for pickup?"</p>
+</div>
+<!-- Updated button outline to dark green -->
+<button class="w-full py-2.5 border border-[#075E54] text-[#075E54] rounded-full font-label-md text-label-md flex items-center justify-center gap-2 active:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+                Schedule Broadcast
+            </button>
+</div>
+</section>
+</main>
+<!-- Sticky Action Button (Launch) -->
+<div class="fixed bottom-[64px] left-0 w-full p-4 bg-background/80 backdrop-blur-md z-40">
+<button class="w-full py-3.5 bg-[#075E54] text-white rounded-full font-headline-md text-headline-md shadow-lg shadow-[#075E54]/20 active:scale-[0.98] transition-transform">
+        Launch Campaign
+    </button>
+</div>
+<!-- WhatsApp Framework: Bottom Navigation -->
+
+<script>
+    // Toggle AI Guidance logic
+    const aiToggle = document.getElementById('aiToggle');
+    const coachMark = document.querySelector('.coach-mark-float');
+    const aiGlow = document.querySelector('.ai-glow');
+    const aiChips = document.querySelectorAll('.bg-secondary-container\\/30');
+
+    aiToggle.addEventListener('click', () => {
+        const isOn = aiToggle.classList.contains('bg-primary-container');
+        if (!isOn) {
+            if(coachMark) coachMark.style.display = 'none';
+            if(aiGlow) aiGlow.classList.remove('ai-glow');
+            aiChips.forEach(chip => chip.style.display = 'none');
+        } else {
+            if(coachMark) coachMark.style.display = 'block';
+            if(aiGlow) aiGlow.classList.add('ai-glow');
+            aiChips.forEach(chip => chip.style.display = 'flex');
+        }
+    });
+
+    // WhatsApp-like elevation on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 5) {
+            header.classList.add('shadow-md');
+        } else {
+            header.classList.remove('shadow-md');
+        }
+    });
+</script>
+
+
+
+
+</body></html>

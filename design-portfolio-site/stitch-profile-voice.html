@@ -1,0 +1,204 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Setup Assistant - Voice AI</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "whatsapp-dark": "#075E54",
+                    "on-surface-variant": "#3c4a3d",
+                    "error-container": "#ffdad6",
+                    "background": "#f9f9f9",
+                    "primary-container": "#25d366",
+                    "primary": "#075E54",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed": "#a8f0e3",
+                    "inverse-primary": "#3de273",
+                    "secondary-fixed-dim": "#8cd4c7",
+                    "primary-fixed-dim": "#3de273",
+                    "surface": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-container": "#005523",
+                    "tertiary-container": "#63c9b9",
+                    "on-primary-fixed-variant": "#005322",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary-fixed": "#002109",
+                    "secondary-container": "#a5ede0",
+                    "on-tertiary-fixed": "#00201c",
+                    "inverse-on-surface": "#f0f1f1",
+                    "tertiary": "#006b5f",
+                    "surface-tint": "#075E54",
+                    "surface-dim": "#dadada",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005047",
+                    "on-secondary-container": "#226e63",
+                    "outline-variant": "#bbcbb9",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f3f4",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-container": "#eeeeee",
+                    "tertiary-fixed-dim": "#72d8c8",
+                    "secondary": "#1c695f",
+                    "outline": "#6c7b6b",
+                    "on-tertiary-container": "#005249",
+                    "primary-fixed": "#66ff8e",
+                    "on-background": "#1a1c1c",
+                    "tertiary-fixed": "#8ff4e3",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-bright": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005047"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "lg": "24px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .pulse-mic {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(.95); box-shadow: 0 0 0 0 rgba(7, 94, 84, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(7, 94, 84, 0); }
+            100% { transform: scale(.95); box-shadow: 0 0 0 0 rgba(7, 94, 84, 0); }
+        }
+    .waveform-bar { animation: waveform 1.2s ease-in-out infinite; } @keyframes waveform { 0%, 100% { height: 8px; } 50% { height: 24px; } } .waveform-bar:nth-child(2) { animation-delay: 0.1s; } .waveform-bar:nth-child(3) { animation-delay: 0.2s; } .waveform-bar:nth-child(4) { animation-delay: 0.3s; } .waveform-bar:nth-child(5) { animation-delay: 0.4s; }@keyframes waveform { 0%, 100% { height: 8px; } 50% { height: 24px; } }</style>
+</head>
+<body class="font-body-md text-on-surface" style="background-color: rgb(239, 234, 226);">
+<!-- Status Bar (iOS Style) -->
+<div class="fixed top-0 w-full z-[60] bg-whatsapp-dark h-11 flex items-center justify-between px-6 text-on-primary">
+<span class="text-sm font-semibold">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-11 w-full z-50 bg-whatsapp-dark text-on-primary shadow-sm flex flex-col">
+<div class="h-14 flex items-center px-margin-mobile">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:bg-white/10 p-2 rounded-full transition-colors duration-200">arrow_back</span>
+<h1 class="font-headline-md text-headline-md">Setup Assistant</h1>
+</div>
+<div class="ml-auto flex items-center gap-2">
+<span class="material-symbols-outlined p-2">videocam</span>
+<span class="material-symbols-outlined p-2">call</span>
+<span class="material-symbols-outlined p-2">more_vert</span>
+</div>
+</div>
+</header>
+<main class="pt-[110px] flex flex-col items-center min-h-screen px-gutter pb-8">
+<!-- Avatar Section -->
+<div class="relative flex justify-center items-center mt-6">
+<div class="absolute inset-0 border-2 border-primary-container/40 rounded-full animate-ping [animation-duration:3s] ring-4 ring-whatsapp-dark/40 animate-pulse"></div><div class="absolute inset-0 border-2 border-primary-container rounded-full animate-pulse ring-4 ring-whatsapp-dark/40"></div><div class="w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-whatsapp-dark/10 overflow-hidden shadow-lg p-1 bg-white ring-4 ring-whatsapp-dark/40 animate-pulse">
+<img alt="Friendly female avatar wearing a professional teal blazer, smiling, in a clean 3D character design style." class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida/AP1WRLuc6ybMY645DpG1PDhEim4nM-31OE-zJK4Ejn4NVpccYJTbOyFBU84-zsw50j1XLjG6vXI3IgsiFDwm7BtjKLqiSV_cWq_q3CFRbRtWUa0lF02OJAm0hLTffpyUGqCUkmDOaElu6QBed0uonp_d896VFO1HsXzfgLIdqtwsEV3_ahXiV52iFa2YS39CWkHYeQg85rLpRrkPQx2X_9zgB673ncS6y3aTMddIZk75g0Hu98U2NMM5sxFx6s8">
+</div>
+</div><div class="flex flex-col items-center mt-6 mb-8"><div class="flex items-end gap-1 h-8 mb-2"><div class="waveform-bar w-1.5 bg-whatsapp-dark rounded-full h-2 animate-[waveform_1.2s_ease-in-out_infinite]"></div><div class="waveform-bar w-1.5 bg-whatsapp-dark rounded-full h-2 animate-[waveform_1.2s_ease-in-out_infinite_0.1s]"></div><div class="waveform-bar w-1.5 bg-whatsapp-dark rounded-full h-2 animate-[waveform_1.2s_ease-in-out_infinite_0.2s]"></div><div class="waveform-bar w-1.5 bg-whatsapp-dark rounded-full h-2 animate-[waveform_1.2s_ease-in-out_infinite_0.3s]"></div><div class="waveform-bar w-1.5 bg-whatsapp-dark rounded-full h-2 animate-[waveform_1.2s_ease-in-out_infinite_0.4s]"></div></div><p class="font-label-md text-whatsapp-dark">Listening...</p></div>
+<!-- Waveform Section -->
+
+<!-- Conversation Area -->
+<div class="w-full max-w-md space-y-4 mt-4"><!-- AI Speech Bubble (Left) -->
+<div class="flex justify-start mb-4">
+  <div class="relative bg-white p-3 px-4 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] border border-outline-variant flex items-center gap-2">
+    <span class="material-symbols-outlined text-on-surface-variant text-[18px]">mic</span>
+    <p class="font-body-lg text-on-surface">"What's your business called?"</p>
+  </div>
+</div>
+
+<!-- User Speech Bubble (Right) -->
+<div class="flex justify-end">
+  <div class="relative bg-primary-container p-3 px-4 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] flex items-center gap-2" style="background-color: rgb(220, 248, 198);">
+    <p class="font-body-lg font-semibold text-whatsapp-dark">Business name: Suchi's Chai Trail</p>
+    <span class="material-symbols-outlined text-whatsapp-dark text-[18px]" style="font-variation-settings: &quot;FILL&quot; 1;">mic</span>
+  </div>
+</div></div>
+<!-- Voice Controls -->
+
+<div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-on-background/20 rounded-full z-30"></div></main>
+<!-- BottomNavBar (WhatsApp Style) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface pb-8 pt-4 px-6 border-t border-outline-variant shrink-0 z-20"><div class="flex items-center gap-4"><button class="flex-1 bg-surface-container-lowest shadow-lg rounded-full px-6 py-4 flex items-center gap-3 text-on-surface-variant hover:bg-surface-container transition-colors border border-outline-variant"><span class="material-symbols-outlined text-[20px]">keyboard</span><span class="font-label-md">Type instead...</span></button><button class="w-16 h-16 rounded-full bg-whatsapp-dark text-white shadow-xl flex flex-col items-center justify-center hover:scale-105 active:scale-95 transition-all border-4 border-surface-container-lowest"><span class="material-symbols-outlined text-[24px]">mic</span></button></div></div>
+<script>
+        // Micro-interaction for the mic button
+        const micBtn = document.querySelector('.pulse-mic');
+        let isListening = true;
+
+        micBtn.addEventListener('click', () => {
+            isListening = !isListening;
+            const statusLabel = document.querySelector('.animate-pulse');
+            
+            if (isListening) {
+                statusLabel.textContent = 'LISTENING...';
+                statusLabel.classList.add('animate-pulse');
+                micBtn.classList.add('pulse-mic');
+            } else {
+                statusLabel.textContent = 'PAUSED';
+                statusLabel.classList.remove('animate-pulse');
+                micBtn.classList.remove('pulse-mic');
+            }
+        });
+    </script>
+
+</body></html>

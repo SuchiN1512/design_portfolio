@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .chat-bg {
+      background-color: #e5ddd5;
+      background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+      background-repeat: repeat;
+      background-blend-mode: overlay;
+    }
+    .bubble-shadow {
+      box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#3c4a3d",
+            "error-container": "#ffdad6",
+            "background": "#f9f9f9",
+            "primary-container": "#25d366",
+            "primary": "#075E54",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2f3131",
+            "secondary-fixed": "#a8f0e3",
+            "inverse-primary": "#3de273",
+            "secondary-fixed-dim": "#8cd4c7",
+            "primary-fixed-dim": "#3de273",
+            "surface": "#f9f9f9",
+            "surface-container-high": "#e8e8e8",
+            "on-primary-container": "#005523",
+            "tertiary-container": "#63c9b9",
+            "on-primary-fixed-variant": "#005322",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "surface-container-highest": "#e2e2e2",
+            "on-primary-fixed": "#002109",
+            "secondary-container": "#a5ede0",
+            "on-tertiary-fixed": "#00201c",
+            "inverse-on-surface": "#f0f1f1",
+            "tertiary": "#006b5f",
+            "surface-tint": "#075E54",
+            "surface-dim": "#dadada",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#005047",
+            "on-secondary-container": "#226e63",
+            "outline-variant": "#bbcbb9",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f4",
+            "on-secondary": "#ffffff",
+            "on-surface": "#1a1c1c",
+            "surface-container": "#eeeeee",
+            "tertiary-fixed-dim": "#72d8c8",
+            "secondary": "#075E54",
+            "outline": "#6c7b6b",
+            "on-tertiary-container": "#005249",
+            "primary-fixed": "#66ff8e",
+            "on-background": "#1a1c1c",
+            "tertiary-fixed": "#8ff4e3",
+            "on-secondary-fixed": "#00201c",
+            "surface-bright": "#f9f9f9",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#005047"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "16px",
+            "xl": "24px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "40px",
+            "lg": "24px",
+            "margin-mobile": "16px",
+            "gutter": "16px",
+            "xs": "4px",
+            "md": "16px",
+            "sm": "8px",
+            "base": "4px",
+            "xl": "32px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style id="fit-override">
+  html,body{margin:0 !important;background:#ffffff !important;}
+  body{display:block !important;min-height:100dvh !important;height:100dvh !important;}
+  body>div.relative{width:100% !important;max-width:none !important;height:100dvh !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-hidden h-screen flex flex-col items-center justify-center">
+<!-- Mobile Container Emulator -->
+<div class="w-full max-w-[412px] h-[892px] bg-white shadow-2xl relative overflow-hidden flex flex-col border border-outline-variant/30 rounded-[3rem]">
+<!-- Status Bar Emulator Area (consistent green) -->
+<div class="bg-[#075E54] h-6 w-full"></div>
+<!-- TopAppBar -->
+<header class="bg-[#075E54] text-white font-headline-md docked full-width top-0 sticky z-50 shadow-sm flex items-center justify-between px-margin-mobile h-[64px] w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined transition-colors duration-200 active:opacity-80 cursor-pointer">arrow_back</span>
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-white" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<p class="font-bold text-body-lg leading-tight">Meta AI agent</p>
+<p class="text-[10px] opacity-80 uppercase tracking-wider font-bold">Business Partner</p>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined transition-colors duration-200 active:opacity-80 cursor-pointer">videocam</span>
+<span class="material-symbols-outlined transition-colors duration-200 active:opacity-80 cursor-pointer">call</span>
+<span class="material-symbols-outlined transition-colors duration-200 active:opacity-80 cursor-pointer">more_vert</span>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto chat-bg p-4 flex flex-col gap-4">
+<!-- Date Stamp -->
+<div class="self-center bg-white/80 px-3 py-1 rounded-lg shadow-sm text-on-surface-variant text-[11px] font-bold uppercase tracking-wider mb-2">
+      Today
+    </div>
+<!-- AI Greeting -->
+<div class="max-w-[85%] self-start flex flex-col gap-1">
+<div class="bg-white p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm bubble-shadow text-on-surface relative">
+<p class="text-body-md">Hi there! I've analyzed your recent shop activity. Ready to boost your sales this weekend?</p>
+<span class="absolute -left-2 top-0 text-white leading-none overflow-hidden h-4 w-4">
+<svg fill="currentColor" viewbox="0 0 16 16"><path d="M16 0L0 0L16 16V0Z"></path></svg>
+</span>
+<p class="text-[10px] text-right text-on-surface-variant/70 mt-1">10:42 AM</p>
+</div>
+</div>
+<!-- AI Proposal -->
+<div class="max-w-[85%] self-start flex flex-col gap-1">
+<div class="bg-white p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm bubble-shadow text-on-surface">
+<p class="font-bold text-[#075E54] mb-2">Campaign Strategy Proposal</p>
+<ul class="flex flex-col gap-2 text-body-md mb-4">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#075E54] text-[18px]">target</span>
+<span class="leading-tight"><strong>Goal:</strong> Drive "Click-to-WhatsApp" chat starts.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#075E54] text-[18px]">groups</span>
+<span class="leading-tight"><strong>Audience:</strong> Local customers (5-mile radius) interested in artisanal coffee.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#075E54] text-[18px]">payments</span>
+<span class="leading-tight"><strong>Budget:</strong> $15.00 / day for 3 days.</span>
+</li>
+</ul>
+<p class="text-body-md italic text-on-surface-variant">Here is a preview of the Ad and the Broadcast message I've drafted for you:</p>
+<p class="text-[10px] text-right text-on-surface-variant/70 mt-1">10:43 AM</p>
+</div>
+</div>
+<!-- Ad Preview Card -->
+<div class="max-w-[90%] self-start">
+<div class="bg-white rounded-xl shadow-md border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="px-4 py-2 bg-surface-container-low flex justify-between items-center border-b border-outline-variant/10">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Ad Preview</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+</div>
+<div class="h-44 w-full relative">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1z8mmv_iKdgRSS21zTjPchhUO83Oo-RsUAXeEAxwnvh_k8nW6ty8rdbT291I8UlVUwevPK9DQrh1q5Gj0R8v5uzA3YGWcj_t9hSHQOC0HNGQaGyH35usJgWqY6Fq7WoWeAqsOY84vhQ7kuv3mM2FPWm0EgV5mfPXLrl8lehHmWFs7BNEuZSDuyaPG5xSrcHyxIogMWcESuNloIPZhd5LrFPjHdHQ_eaw-YCiR0QsfJyElQpiL8Bxq')"></div>
+<div class="absolute bottom-3 right-3 bg-[#075E54] text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">SPONSORED</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<p class="font-bold text-body-lg text-on-surface leading-tight">Weekend Brew Special! ☕</p>
+<p class="text-body-md text-on-surface-variant">Tap below to get your 20% discount code and chat with us to pre-order your morning roast.</p>
+<div class="mt-2 py-3 px-4 bg-[#075E54] border border-[#075E54] rounded-xl flex items-center justify-between active:opacity-90 transition-opacity cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-label-md font-bold text-white">Send Message</span>
+</div>
+<span class="material-symbols-outlined text-white text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Broadcast Draft Card -->
+<div class="max-w-[90%] self-start mb-8">
+<div class="bg-white rounded-xl shadow-md border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="px-4 py-2 bg-[#075E54]/10 flex justify-between items-center border-b border-outline-variant/10">
+<span class="text-[11px] font-bold text-[#075E54] uppercase tracking-widest">Broadcast Message Draft</span>
+<span class="material-symbols-outlined text-[16px] text-[#075E54]">edit</span>
+</div>
+<div class="p-4 bg-[#f1fff3]">
+<div class="bg-white p-3 rounded-lg border border-[#075E54]/10 shadow-sm">
+<p class="text-body-md leading-relaxed text-on-surface">"Hey [Customer Name]! We missed you. 🌿 Come by this Saturday for our exclusive 'Roaster's Choice' event. Show this message for a free pastry with any large latte! See you there?"</p>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest flex items-start gap-2 border-t border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mt-0.5">info</span>
+<p class="text-[11px] leading-tight text-on-surface-variant italic">This will be sent to 452 highly engaged customers.</p>
+</div>
+</div>
+</div>
+<!-- Spacer to ensure no overlap with floating interaction layer -->
+<div class="h-32"></div>
+</main>
+<!-- Interaction Layer (Static at bottom of container for better spacing management) -->
+<div class="w-full bg-white border-t border-outline-variant/20">
+<!-- Quick Reply Chips -->
+<div class="flex gap-2 overflow-x-auto px-4 py-3 no-scrollbar bg-transparent">
+<button class="whitespace-nowrap bg-[#075E54] text-white font-bold px-5 py-2.5 rounded-full shadow-sm hover:opacity-90 transition-all active:scale-95 text-body-md">Looks good</button>
+<button class="whitespace-nowrap bg-[#075E54] text-white font-bold px-5 py-2.5 rounded-full shadow-sm hover:opacity-90 transition-all active:scale-95 text-body-md">Edit budget</button>
+<button class="whitespace-nowrap bg-[#075E54] text-white font-bold px-5 py-2.5 rounded-full shadow-sm hover:opacity-90 transition-all active:scale-95 text-body-md">Change audience</button>
+</div>
+<!-- Chat Input Bar -->
+<div class="flex items-center gap-2 px-3 py-3 pb-8">
+<div class="flex-1 bg-surface-container-low rounded-full flex items-center px-4 py-2.5 shadow-inner border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant/70 mr-2">mood</span>
+<input class="flex-1 outline-none text-body-md bg-transparent placeholder:text-on-surface-variant/50" placeholder="Message" type="text"/>
+<span class="material-symbols-outlined text-on-surface-variant/70 ml-2">attach_file</span>
+<span class="material-symbols-outlined text-on-surface-variant/70 ml-2">photo_camera</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-[#075E54] flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    window.addEventListener('load', () => {
+      const main = document.querySelector('main');
+      main.scrollTop = main.scrollHeight;
+    });
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (this.innerText === "Looks good") {
+          const input = document.querySelector('input');
+          input.value = "Looks good, let's proceed!";
+          setTimeout(() => {
+            alert('Campaign Activation requested!');
+          }, 300);
+        }
+      });
+    });
+  </script>
+</body></html>

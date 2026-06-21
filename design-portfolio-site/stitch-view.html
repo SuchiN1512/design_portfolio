@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Concept stimulus — full screen</title>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{background:#15171c;display:flex;align-items:center;justify-content:center;min-height:100dvh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;}
+  .device{background:#0e1116;border-radius:46px;padding:12px;transform-origin:center center;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.7), inset 0 0 0 2px rgba(255,255,255,.06);}
+  .screen{width:390px;height:844px;border-radius:36px;overflow:hidden;background:#fff;position:relative;}
+  .screen iframe{width:390px;height:844px;border:0;display:block;}
+  .bar{position:fixed;top:14px;left:16px;z-index:10;}
+  .bar a{color:#9aa0aa;font-size:13px;text-decoration:none;}
+  .bar a:hover{color:#fff;}
+  .err{color:#9aa0aa;font-size:14px;}
+</style>
+</head>
+<body>
+  <div class="bar"><a href="cs-meta-northstar.html#stimuli">← Back to case study</a></div>
+  <div class="device" id="device"><div class="screen"><iframe id="frame" title="Concept-testing stimulus"></iframe></div></div>
+  <script>
+    (function(){
+      var s = new URLSearchParams(location.search).get('s') || '';
+      var frame = document.getElementById('frame');
+      if(/^stitch-[a-z0-9\-]+\.html$/i.test(s)){ frame.src = s; }
+      else { document.querySelector('.screen').innerHTML = '<p class="err" style="padding:24px;">No valid screen specified.</p>'; }
+      function fit(){
+        var d = document.getElementById('device');
+        var scale = Math.min(1, (window.innerHeight - 40) / 884, (window.innerWidth - 24) / 414);
+        d.style.transform = 'scale(' + scale + ')';
+      }
+      window.addEventListener('resize', fit); fit();
+    })();
+  </script>
+</body>
+</html>

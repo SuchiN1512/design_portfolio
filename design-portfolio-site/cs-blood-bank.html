@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cutting blood shortage & waste through field research — Suchismita Naik</title>
+<style>
+  :root{
+    --bg:#fbf8f3; --bg-soft:#f1eefb; --card:#ffffff; --line:#eae4dc;
+    --ink:#2d2b35; --ink-soft:#5d626e; --ink-dim:#9aa0aa;
+    --accent:#7b6ef0; --accent-2:#2fa993; --accent-warm:#e0875f;
+    --radius:16px; --max:1080px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;} .narrow{max-width:760px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3,h4{line-height:1.18;margin:0;font-weight:680;letter-spacing:-0.02em;} p{margin:0 0 1em;} a{color:var(--accent);text-decoration:none;}
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(251,248,243,0.82);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+  .logo{font-weight:760;font-size:17px;color:var(--ink);} .logo b{color:var(--accent);} .back{font-size:13px;color:var(--ink-soft);}
+  header.hero{padding:56px 0 44px;border-bottom:1px solid var(--line);background:
+     radial-gradient(900px 400px at 10% -10%, rgba(255,222,208,.55), transparent 60%),
+     radial-gradient(740px 360px at 95% -5%, rgba(196,238,219,.5), transparent 58%);}
+  .disc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .chip{font-size:12px;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);}
+  .chip.lead{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600;}
+  .hero h1{font-size:clamp(28px,4.6vw,44px);max-width:20ch;} .hero .lede{font-size:clamp(16px,2vw,19px);color:var(--ink-soft);max-width:64ch;margin-top:18px;}
+  .meta{display:grid;grid-template-columns:repeat(4,auto);gap:26px;margin-top:28px;justify-content:start;}
+  @media(max-width:680px){.meta{grid-template-columns:1fr 1fr;gap:16px;}}
+  .meta .l{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);} .meta .v{font-size:14px;font-weight:560;margin-top:3px;max-width:24ch;}
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .kick{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  h2.sec{font-size:clamp(23px,3.2vw,31px);max-width:24ch;margin-bottom:16px;} section p{max-width:72ch;color:var(--ink-soft);} section p strong{color:var(--ink);font-weight:620;}
+  ul.clean{margin:0 0 1em;padding-left:18px;max-width:72ch;color:var(--ink-soft);} ul.clean li{margin-bottom:7px;} ul.clean li b{color:var(--ink);}
+  #problem{background:linear-gradient(180deg,rgba(255,222,208,.42),transparent 70%);}
+  #role{background:linear-gradient(180deg,rgba(222,215,255,.42),transparent 70%);}
+  #impact{background:linear-gradient(180deg,rgba(212,240,227,.5),transparent 70%);}
+  .ri{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px;} @media(max-width:640px){.ri{grid-template-columns:1fr;}}
+  .ri-block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .ri-lab{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:10px;} .ri-block.impact .ri-lab{color:var(--accent-2);}
+  .ri-block ul{margin:0;padding-left:16px;} .ri-block li{font-size:14px;color:var(--ink-soft);margin-bottom:7px;} .ri-block li b{color:var(--ink);font-weight:650;}
+  figure{margin:22px 0 6px;} figure img{width:100%;border:1px solid var(--line);border-radius:12px;display:block;background:#fff;} figcaption{font-size:13px;color:var(--ink-dim);margin-top:8px;text-align:center;}
+  .gal{display:grid;gap:12px;margin:22px 0 6px;} .gal.c2{grid-template-columns:1fr 1fr;} .gal.c3{grid-template-columns:1fr 1fr 1fr;}
+  .gal img{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;display:block;} .gal figure{margin:0;} .gal figcaption{font-size:11.5px;}
+  @media(max-width:680px){.gal.c3{grid-template-columns:1fr 1fr;}}
+  .pull{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:16px 18px;margin:20px 0;font-size:15.5px;color:var(--ink);max-width:none;}
+  .hmw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;} @media(max-width:760px){.hmw{grid-template-columns:1fr;}}
+  .hmwc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14.5px;color:var(--ink);font-weight:560;}
+  .vid{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:22px 0 6px;}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .pn{display:flex;justify-content:space-between;gap:12px;padding:26px 0;font-size:14px;} .pn a{font-weight:560;}
+  footer{padding:28px 0;color:var(--ink-dim);font-size:13px;text-align:center;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="index.html">SUCHI<b>.</b>NAIK</a>
+  <a class="back" href="index.html">← Back to portfolio</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="disc">
+    <span class="chip lead">Service Design</span>
+    <span class="chip lead">Systems Design</span>
+    <span class="chip">Design Research</span>
+    <span class="chip">UX / Interaction Design</span>
+    <span class="chip">Ethnography</span>
+  </div>
+  <h1>Cutting blood shortage &amp; waste through field research</h1>
+  <p class="lede">Ethnographic field research across donors, recipients, and blood banks exposed a predictable supply–demand gap — and a smart-inventory + camp-prediction service, now approved and in execution by the Nashik city council.</p>
+  <div class="meta">
+    <div><div class="l">My role</div><div class="v">Design Researcher &amp; Designer (team of 2)</div></div>
+    <div><div class="l">Timeline</div><div class="v">10 weeks</div></div>
+    <div><div class="l">Organisation</div><div class="v">TCS Digital Impact Square, Nashik (Smart Nashik)</div></div>
+    <div><div class="l">Tools</div><div class="v">Illustrator, Sketch, Principle, After Effects</div></div>
+  </div>
+</div></header>
+
+<section>
+  <div class="narrow">
+    <div class="kick">What kind of design this was</div>
+    <h2 class="sec">Service &amp; systems design, driven by ethnographic research</h2>
+    <p>This was primarily <strong>service design and systems design</strong> — mapping a life-or-death, multi-stakeholder system end to end and designing an intervention at its highest-leverage point — grounded in <strong>ethnographic design research</strong> (shadowing, interviews, surveys) and delivered through <strong>UX / interaction design</strong> of a multi-role web portal and prediction tool. I led the design research and design end to end as the sole designer on a two-person team (the other a business-school student).</p>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="kick">About the project</div>
+    <h2 class="sec">A challenge from the Smart Nashik initiative</h2>
+    <p>This was one of the challenges listed by TCS as part of the Smart Nashik initiative. Among various themes, I chose this challenge for the magnitude of the problem and its impact on society.</p>
+    <p><strong>Purpose &amp; scope.</strong> Each year more than 40 million units of blood are required across India — yet access to information about bloodstock availability and donation remains far from satisfactory. In a medical emergency, blood is a critical component, and a needy citizen should know where to get it, or how to access the required quantity quickly.</p>
+    <p class="dim" style="font-size:13.5px;">Reason: I wanted to design solutions in the health domain and understand this age-old challenge. Guides: Mr. Chakradhar Saswade, Dr. Aneesha Sharma.</p>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="narrow">
+    <div class="kick">The problem I set out to resolve</div>
+    <h2 class="sec">A structural supply–demand gap</h2>
+    <p>Nashik is a city of around 1.4 million with only thirteen blood banks. Ideally one bank serves a million people, yet the banks aren't equipped — in infrastructure or instruments — to serve that purpose. The gap between supply and demand was <strong>structural, not random</strong>: emergencies turned into desperate searches while collected blood expired unused.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow" style="padding:0;">
+      <div class="kick">Research process</div>
+      <h2 class="sec">From a national problem down to one city's mechanics</h2>
+      <p>I started with secondary research — reports, statistics, journals, research papers — to understand the magnitude of the problem, then mapped the whole ecosystem and deliberately narrowed the focus from national to city level, because a life-or-death systems problem can only be fixed where you can actually observe its mechanics.</p>
+    </div>
+    <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_0fa386bfbe6f46129c8c18763f42b66e~mv2_d_3000_1815_s_2.png/v1/fill/w_887,h_538,al_c,q_90,enc_auto/ecosystem.png" alt="Ecosystem mapping"><figcaption>Ecosystem mapping of the blood-bank system</figcaption></figure>
+    <div class="narrow" style="padding:0;">
+      <p>Over the next three weeks the team worked to understand the lives of recipients in hospitals, blood-bank in-charges, and donors. We interviewed in-charges from Jankalyan, Bytco, Arpan, Nashik, Jeevan, the Super-speciality hospital, and Civil hospital, who shared their daily schedules and challenges. We then shadowed donors at a blood-donation camp for observational research, and ran online surveys sent to around <strong>100 residents</strong> of Nashik. Nurses described their actions and thoughts while we followed them through recipients' rooms (mainly the maternity ward). Back at the whiteboard, we mapped findings via <strong>empathy mapping and affinity mapping</strong>, surfacing gaps and opportunities across five lenses: process, people, technology, policy, and communication.</p>
+    </div>
+    <div class="gal c2">
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_8c7bb108f9174be5a58fac675ef81d5f~mv2_d_4160_1630_s_2.jpg/v1/fill/w_497,h_263,al_c,q_80,enc_auto/affinity1.jpg" alt="Affinity mapping"><figcaption>Affinity &amp; empathy mapping</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_d09eca5aa07245b5a578e01e59d5175a~mv2_d_3362_1539_s_2.jpg/v1/fill/w_475,h_263,al_c,q_80,enc_auto/affinity2.jpg" alt="Mapping findings"><figcaption>Synthesizing field findings</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow" style="padding:0;">
+      <div class="kick">Research findings</div>
+      <h2 class="sec">Stakeholders, and where the system broke</h2>
+      <p>I divided stakeholders into <strong>core</strong> (Recipients, Donors, Blood bank — the targets of the solution), direct, and indirect.</p>
+      <h3 style="font-size:18px;margin:18px 0 8px;">Scenario in the blood bank</h3>
+      <p>The gap between demand and supply has grown consistently over the years. Mapping 2011 supply and demand revealed demand spiked in <strong>June and October</strong> (monsoons and the rise of dengue), while camp collection peaked in winter (Jan and Dec) and walk-in collection stayed low year-round (except May). Key insights from a six-week demand-vs-camp-collection comparison:</p>
+      <ul class="clean">
+        <li>A sudden demand spike on 29th Feb (blood used in the maternity ward) — possibly because it was a unique date to give birth.</li>
+        <li>Blood has a <b>35-day shelf life</b>: of 152 units collected, <b>31 units went to waste</b> even amid high demand — likely due to poor camp planning.</li>
+        <li>If those 31 units had been utilized, it would have created significant impact in terms of money and lives.</li>
+      </ul>
+      <p>Primary research surfaced further blood-bank truths: inability to maintain supply at seasonal peaks; difficulty reducing wastage during oversupply; human error leading to fatalities; no proper channel to contact other banks/hospitals to transfer blood; competition to secure camp sites with no new camps added; and no timely payment from hospitals with no point of contact.</p>
+    </div>
+    <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_46ad2b67816d41768f2d8ebe269ca6f3~mv2.png/v1/fill/w_777,h_526,al_c,q_90,enc_auto/supplydemand.png" alt="Supply vs demand"><figcaption>Supply vs. demand — a predictable, seasonal gap</figcaption></figure>
+    <div class="narrow" style="padding:0;">
+      <h3 style="font-size:18px;margin:18px 0 8px;">Donor journey</h3>
+      <p>From ~100 surveyed/interviewed donors, the barriers to a potentially life-saving donation were: general lack of knowledge about the process and demand; no prior information on upcoming camps; fear of rejection at the campsite; inability to track donation dates; distance and time constraints; and no post-donation follow-up.</p>
+      <h3 style="font-size:18px;margin:18px 0 8px;">Recipient journey</h3>
+      <p>When a recipient needs blood, families approach a bank and often end up paying a high price or finding replacement donors. Gaps: reliance on hospitals to find bags; no unified source on blood availability; no real-time donor tracking; lack of awareness in the issuing process; and difficulty finding donors, leading to high anxiety.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow" style="padding:0;">
+      <div class="kick">Problem statements &amp; market analysis</div>
+      <h2 class="sec">Three opportunity areas</h2>
+    </div>
+    <div class="hmw">
+      <div class="hmwc">How might we enhance the experience of donors in order to retain them?</div>
+      <div class="hmwc">How might we achieve a balance between shortages and wastages of blood?</div>
+      <div class="hmwc">How might we ensure supply of blood at time of emergency in least time, effort and cost?</div>
+    </div>
+    <div class="narrow" style="padding:0;">
+      <p style="margin-top:20px;">I analysed existing market solutions to understand their benefits and failures. Even good services failed in some way — because each catered to only one section of the chain.</p>
+    </div>
+    <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_283254bbea7849e5840e33a2c04785ca~mv2_d_3000_1456_s_2.png/v1/fill/w_990,h_484,al_c,q_90,enc_auto/market.png" alt="Market analysis"><figcaption>Market analysis of existing solutions</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow" style="padding:0;">
+      <div class="kick">The design solution</div>
+      <h2 class="sec">A holistic service connecting all three stakeholders</h2>
+      <p>Rather than a point solution, I proposed a holistic service — an enterprise product owned by the blood bank and connected to both recipients and donors — with three subsystems:</p>
+      <ul class="clean">
+        <li><b>Donor ↔ blood bank:</b> a seamless blood-donation system with a doorstep-donation service.</li>
+        <li><b>Within the blood bank:</b> a Smart Inventory Management System with effective distribution of donation camps using a prediction tool.</li>
+        <li><b>Recipient ↔ blood bank:</b> an Emergency Request Service for recipients.</li>
+      </ul>
+      <p>We conceptualized and designed all three subsystems and gathered user feedback. The <strong>second subsystem (within the blood bank)</strong> clicked with stakeholders and showed the most promise in feasibility, impact, and business viability.</p>
+    </div>
+    <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_9bb51d5827f946b0b8305ccaa76f7fd7~mv2_d_3000_2411_s_4_2.png/v1/fill/w_802,h_610,al_c,q_90,enc_auto/threesub.png" alt="Three subsystems"><figcaption>The three-subsystem service concept and touchpoints</figcaption></figure>
+    <div class="narrow" style="padding:0;">
+      <h3 style="font-size:18px;margin:18px 0 8px;">Solution 2 — Smart Inventory + camp-prediction</h3>
+      <p>The system works on a prediction tool with defined input/output parameters. Features include:</p>
+      <ul class="clean">
+        <li>Predict future demand patterns from historical demand data</li>
+        <li>Set the minimum stock requirement for each blood group per month</li>
+        <li>Alert the in-charge about shortages of any blood type</li>
+        <li>Generate camp dates and the number of bags per blood group to collect</li>
+        <li>Decide camp locations by visualizing past donations and blood-group type on a city map</li>
+        <li>Facilitate communication between the camp organizer and on-site organizer</li>
+        <li>Pre-expiration alerts (15 days prior) to the in-charge</li>
+        <li>Coordinate between banks and hospitals to manage excess stock in time</li>
+        <li>Alert regular/registered donors and nearby colleges/industries near a campsite</li>
+        <li>Multiple-user login</li>
+      </ul>
+    </div>
+    <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_3ea5821337034f7aa21b92bf94b9b0da~mv2_d_3000_5529_s_4_2.png/v1/fill/w_811,h_1494,al_c,q_90,enc_auto/wireframes.png" alt="Web portal wireframes"><figcaption>Wireframes of the web portal for inventory in-charge &amp; camp organizer</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow" style="padding:0;">
+      <div class="kick">Final UI</div>
+      <h2 class="sec">The blood-bank portal</h2>
+      <p>The portal serves two key operators — the Inventory In-charge and the Camp Organizer — designed for the real operators rather than an idealized user.</p>
+    </div>
+    <div class="gal c3">
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_d2c02ab071184c3681074cdfb00f0e39~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/dashboard.png" alt="Dashboard"><figcaption>Inventory in-charge dashboard</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_ac01e4e0fda2425880f8e90691894e13~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/inventory.png" alt="Inventory page"><figcaption>Inventory page (min levels, used/available)</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_1b21c6f98a8e49e5b8905b2cb8b0fb9b~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/prediction.png" alt="Prediction tool"><figcaption>Prediction tool — demand/supply trends</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_47bc5c108c3c4f2d85970f98b3814c1c~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/request.png" alt="Request transfer"><figcaption>Request-for-transfer page</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_faa7921a1ad945f6bb82dd352ef961ca~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/camporg.png" alt="Camp organizer"><figcaption>Camp-organizer messages</figcaption></figure>
+      <figure><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_6aab0a47f67143f38c847758ae771c69~mv2_d_2518_2063_s_2.png/v1/fill/w_600,h_492,al_c,q_85,enc_auto/heatmap.png" alt="Camp date generator heatmap"><figcaption>Camp-date generator with city heat map</figcaption></figure>
+    </div>
+    <div class="narrow" style="padding:0;">
+      <h3 style="font-size:18px;margin:18px 0 8px;">Task flow</h3>
+      <div class="vid"><iframe src="https://player.vimeo.com/video/193587640?title=0&byline=0&portrait=0" title="Blood-bank inventory task flow" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section id="role">
+  <div class="narrow">
+    <div class="kick">My responsibilities &amp; artifacts</div>
+    <h2 class="sec">What I owned as the designer</h2>
+    <div class="ri">
+      <div class="ri-block"><span class="ri-lab">Design responsibilities</span><ul>
+        <li>Led <b>design research end to end</b>: secondary research, ecosystem mapping</li>
+        <li>Ethnography — shadowing donors &amp; nurses; <b>7 in-charge interviews</b>; <b>~100 surveys</b></li>
+        <li>Empathy &amp; affinity mapping across 5 lenses</li>
+        <li>Stakeholder mapping; demand/supply data analysis</li>
+        <li>Concepted <b>3 service subsystems</b>; storyboards; touchpoint mapping</li>
+        <li>Designed the portal: wireframes → <b>final UI</b> &amp; prediction/camp tools</li>
+      </ul></div>
+      <div class="ri-block impact"><span class="ri-lab">Artifacts delivered</span><ul>
+        <li>Ecosystem &amp; stakeholder maps</li>
+        <li>Donor &amp; recipient journey maps; empathy/affinity maps</li>
+        <li>Supply–demand data analysis &amp; market analysis</li>
+        <li>Three-subsystem service blueprint &amp; storyboards</li>
+        <li>Web-portal wireframes &amp; high-fidelity UI (2 operator roles)</li>
+        <li>Prediction tool, camp-date generator, city heat map</li>
+        <li>Task-flow prototypes (video)</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="narrow">
+    <div class="kick">Impact as a designer</div>
+    <h2 class="sec">Approved by the city — and in execution</h2>
+    <figure style="margin-top:0;"><img loading="lazy" src="https://static.wixstatic.com/media/2e8b7f_d22c4cdb65034d01b7cb64f37ad2235f~mv2.png/v1/fill/w_1047,h_353,al_c,q_90,enc_auto/impact.png" alt="Impact of the solution"><figcaption>The impact the executed solution would create</figcaption></figure>
+    <ul class="clean">
+      <li><b>Approved by the Nashik city council and currently in execution</b> and growth phase — research translated into a deployed service.</li>
+      <li>Of three concept-tested subsystems, the <b>smart-inventory + camp-prediction tool</b> won on feasibility, impact, and business viability.</li>
+      <li>Reframed the problem from "recruit more donors" to <b>"predict and plan supply"</b> — a higher-leverage bet.</li>
+      <li>Designed for the real operators (inventory in-charge, camp organizer), not an idealized user.</li>
+    </ul>
+    <p class="dim" style="font-size:13px;">Note: happy to share the other solutions (phase 1 and phase 3) that were explored but not implemented.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="pn">
+  <a href="cs-sensex.html">← Previous: Sensex</a>
+  <a href="cs-forever27.html">Next: The Forever 27 Club →</a>
+</div></div>
+<footer>Case study · Blood-bank system · Suchismita Naik · Service &amp; Systems Designer</footer>
+</body>
+</html>

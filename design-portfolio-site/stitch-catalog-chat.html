@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Chat - Catalog Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "whatsapp-dark": "#075E54",
+                "on-surface-variant": "#3c4a3d",
+                "on-surface": "#1a1c1c",
+                "on-error-container": "#93000a",
+                "on-primary-fixed-variant": "#005322",
+                "on-secondary-container": "#226e63",
+                "tertiary-container": "#63c9b9",
+                "on-secondary": "#ffffff",
+                "secondary-fixed-dim": "#8cd4c7",
+                "on-error": "#ffffff",
+                "on-secondary-fixed-variant": "#005047",
+                "surface-variant": "#e2e2e2",
+                "surface-bright": "#f9f9f9",
+                "secondary-fixed": "#a8f0e3",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#3de273",
+                "inverse-primary": "#3de273",
+                "tertiary-fixed-dim": "#72d8c8",
+                "on-secondary-fixed": "#00201c",
+                "surface": "#f9f9f9",
+                "outline": "#6c7b6b",
+                "on-primary-container": "#005523",
+                "background": "#f9f9f9",
+                "surface-dim": "#dadada",
+                "surface-container-high": "#e8e8e8",
+                "primary-fixed": "#66ff8e",
+                "surface-container-low": "#f3f3f4",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#002109",
+                "primary-container": "#25d366",
+                "on-tertiary-fixed": "#00201c",
+                "on-primary": "#ffffff",
+                "on-background": "#1a1c1c",
+                "inverse-surface": "#2f3131",
+                "inverse-on-surface": "#f0f1f1",
+                "tertiary": "#006b5f",
+                "surface-container-highest": "#e2e2e2",
+                "error-container": "#ffdad6",
+                "secondary": "#1c695f",
+                "on-tertiary-container": "#005249",
+                "error": "#ba1a1a",
+                "primary": "#006d2f",
+                "surface-tint": "#006d2f",
+                "surface-container": "#eeeeee",
+                "outline-variant": "#bbcbb9",
+                "on-tertiary-fixed-variant": "#005047",
+                "tertiary-fixed": "#8ff4e3",
+                "secondary-container": "#a5ede0"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "40px",
+                "md": "16px",
+                "xl": "32px",
+                "margin-mobile": "16px",
+                "base": "4px",
+                "sm": "8px",
+                "gutter": "16px",
+                "xs": "4px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-blend-mode: overlay;
+            background-color: #efeae2;
+        }
+        .message-in {
+            border-radius: 0 12px 12px 12px;
+        }
+        .message-out {
+            border-radius: 12px 0 12px 12px;
+        }
+    </style>
+<style id="fit-override">
+  html,body{margin:0 !important;background:#efeae2 !important;}
+  .phone-container{width:100% !important;height:100dvh !important;max-width:none !important;border-radius:0 !important;margin:0 !important;box-shadow:none !important;border:0 !important;}
+</style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<!-- Mobile Device Frame -->
+<div class="relative w-full max-w-[390px] h-[844px] bg-white overflow-hidden shadow-2xl flex flex-col">
+<!-- Status Bar -->
+<div class="flex justify-between items-center px-6 py-3 text-white bg-[#075E54]">
+<span class="text-xs font-bold">9:41</span>
+<div class="flex gap-2 items-center">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-[#075E54] text-white w-full top-0 sticky shadow-sm flex justify-between items-center px-margin-mobile py-sm z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer">arrow_back</span>
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md leading-tight">Meta AI Business</h1>
+<p class="text-[11px] opacity-80 font-label-sm">Active Agent • Catalog Builder</p>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined cursor-pointer p-2 hover:bg-white/10 transition-colors duration-200">more_vert</span>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto chat-bg p-margin-mobile flex flex-col gap-4">
+<!-- Date/System Marker -->
+<div class="flex justify-center my-2">
+<span class="bg-white/80 px-3 py-1 rounded-full text-[11px] font-label-md text-on-surface-variant shadow-sm uppercase tracking-wider">Today</span>
+</div>
+<!-- Agent Message -->
+<div class="flex flex-col gap-1 max-w-[85%] self-start">
+<div class="bg-white message-in p-3 shadow-sm border border-black/5">
+<p class="font-body-md text-body-md text-on-surface">Hello Suchi! I'm ready to help you build the catalog for <span class="font-bold">Suchi's Tea House</span>. Please upload a photo of the item you'd like to add.</p>
+<span class="text-[10px] text-outline float-right mt-1">10:02 AM</span>
+</div>
+</div>
+<!-- User Message with Photo -->
+<div class="flex flex-col gap-1 max-w-[85%] self-end">
+<div class="p-1 shadow-sm border border-black/5 message-out" style="background-color: #DCF8C6;">
+<div class="rounded-lg overflow-hidden mb-2">
+<img alt="A close-up, high-quality photograph of a steaming cup of traditional Indian Masala Chai served in a rustic clay kulhad." class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwA2QRdlaglo7mdTI8rrv6LvqsBxpa0rNJGlB-_zdtK2EKX8drELr0KUc73YCe7gMG_FHr-FDN52DPdTjiFlDRZU2ItvHWmZHSqVe5n4aZTb3ediSQI8WUW3yzPinL1IV5OzrAeiD_m-ErQV9NuEV3GYbduS1EzEaFaMC8XDl32_rtvwHKBBcnHX8RRGSqI2mUgp06GSkfyD2alGIh5SO9SYVvQD-9YvKO8QqOUXA1NW5GRtVk3X2Q"/>
+</div>
+<div class="px-2 pb-2">
+<p class="font-body-md text-body-md text-on-primary-container">Here's the photo of our signature Masala Chai. It costs ₹120 and is made with our special spice blend.</p>
+<div class="flex justify-end items-center gap-1 mt-1">
+<span class="text-[10px] text-on-primary-container/70">10:04 AM</span>
+<span class="material-symbols-outlined text-[14px] text-on-primary-container">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Message: Product Preview Card -->
+<div class="flex flex-col gap-1 max-w-[90%] self-start">
+<div class="bg-white message-in p-3 shadow-sm border border-black/5">
+<p class="font-body-md text-body-md text-on-surface mb-3">Great! I've drafted a product entry for your catalog. How does this look?</p>
+<!-- Product Preview Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden mb-2">
+<div class="p-3">
+<div class="flex gap-4">
+<div class="w-16 h-16 shrink-0 rounded-lg overflow-hidden">
+<img alt="A minimalist overhead shot of a single clay cup of masala chai" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHZ38gUA8t895CZHpDvPQrbm7WeVMyB7-zanfYAuUOdIvABJxbvVGHnoww7ATNhHB2PLY2ZZ5qrFzqoqruenmS8_lDKnNH0JNMxkTtPcWfu8EylGRgL6nzdw2QfcFDjhpMLLmn-r8dMw3JuLnySDP_WXUg-3FSSvARnV_0fO0ivOKkquRn3zCakT9UTc03RiIGKDibmfSqVzgOnW9vGcpIGPV2ANbahvoePHh6NmddmDB1jwwrAT-a"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-md text-on-surface text-body-lg mb-0.5 truncate">Masala Chai</h3>
+<p class="text-[#075E54] font-bold text-body-md mb-1">₹120</p>
+<p class="text-on-surface-variant text-[11px] font-body-md leading-tight line-clamp-2">Traditional spiced tea with milk, cardamom, and ginger.</p>
+</div>
+</div>
+</div>
+<div class="bg-secondary/5 border-t border-outline-variant/30 py-2 px-3 flex justify-between items-center">
+<span class="text-[11px] font-label-md text-[#075E54]">Preview Only</span>
+<span class="material-symbols-outlined text-[#075E54] text-[18px]">visibility</span>
+</div>
+</div>
+<span class="text-[10px] text-outline float-right mt-1">10:05 AM</span>
+</div>
+<!-- Quick Replies - Placed within flow but ensures visibility -->
+<div class="flex flex-wrap gap-2 mt-2 mb-28">
+<button class="bg-[#075E54] text-white px-4 py-2 rounded-full font-label-md text-[13px] shadow-sm hover:brightness-110 active:scale-95 transition-all">
+                    Add to catalog
+                </button>
+<button class="bg-[#075E54] text-white px-4 py-2 rounded-full font-label-md text-[13px] shadow-sm hover:brightness-110 active:scale-95 transition-all">
+                    Add another
+                </button>
+<button class="bg-[#075E54] text-white px-4 py-2 rounded-full font-label-md text-[13px] shadow-sm hover:brightness-110 active:scale-95 transition-all">
+                    Edit details
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Chat Input Bar -->
+<div class="absolute bottom-0 w-full bg-surface-container-lowest p-2 flex items-end gap-2 pb-6 border-t border-outline-variant/20">
+<div class="flex-1 bg-white rounded-3xl border border-outline-variant flex items-center px-4 py-2 min-h-[48px] shadow-sm">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-[#075E54] transition-colors">sentiment_satisfied</span>
+<input class="flex-1 border-none focus:ring-0 text-on-surface font-body-md text-body-md bg-transparent" placeholder="Type a message" type="text"/>
+<span class="material-symbols-outlined text-outline rotate-45 cursor-pointer hover:text-[#075E54] transition-colors">attach_file</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-[#075E54] transition-colors ml-2">photo_camera</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-[#075E54] flex items-center justify-center text-white shadow-lg hover:brightness-110 active:scale-90 transition-all shrink-0">
+<span class="material-symbols-outlined" id="action-icon" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<script>
+    // Micro-interactions for input focus
+    const input = document.querySelector('input');
+    const micIcon = document.getElementById('action-icon');
+    
+    input.addEventListener('input', (e) => {
+        if (e.target.value.length > 0) {
+            micIcon.textContent = 'send';
+            micIcon.style.transform = 'rotate(-10deg)';
+        } else {
+            micIcon.textContent = 'mic';
+            micIcon.style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // Simple scroll to bottom on load
+    window.onload = () => {
+        const main = document.querySelector('main');
+        main.scrollTop = main.scrollHeight;
+    };
+</script>
+</body></html>
