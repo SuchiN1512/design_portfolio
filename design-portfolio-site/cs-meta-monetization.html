@@ -55,6 +55,7 @@
 
   body.locked{overflow:hidden;}
   body.locked > *:not(#pwgate){display:none !important;}
+  body:not(.locked) #pwgate{display:none !important;}
   #pwgate{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--font);}
   #pwgate .box{max-width:380px;width:100%;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 28px;box-shadow:0 26px 70px -34px rgba(45,43,53,.55);}
   #pwgate .lk{width:46px;height:46px;border-radius:50%;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;}
@@ -239,10 +240,10 @@
 <script>
 function cwUnlock(){
   var i=document.getElementById('pwin'), e=document.getElementById('pwerr');
-  if(i.value.trim()==='Meta@1234'){ try{sessionStorage.setItem('meta_unlocked','1');}catch(_){} document.body.classList.remove('locked'); }
+  if(i.value.trim()==='Meta@1234'){ try{sessionStorage.setItem('meta_unlocked','1');}catch(_){} document.body.classList.remove('locked'); var g=document.getElementById('pwgate'); if(g){g.style.display='none';} }
   else { e.textContent='Incorrect password. Please try again.'; i.value=''; i.focus(); }
 }
-try{ if(sessionStorage.getItem('meta_unlocked')==='1'){document.body.classList.remove('locked');} }catch(_){}
+try{ if(sessionStorage.getItem('meta_unlocked')==='1'){document.body.classList.remove('locked'); var g=document.getElementById('pwgate'); if(g){g.style.display='none';}} }catch(_){}
 </script>
 </body>
 </html>
