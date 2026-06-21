@@ -65,9 +65,35 @@
   .nda{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:13px 17px;font-size:13px;color:var(--ink-soft);margin-bottom:22px;}
   .pn{display:flex;justify-content:space-between;gap:12px;padding:26px 0;font-size:14px;} .pn a{font-weight:560;}
   footer{padding:28px 0;color:var(--ink-dim);font-size:13px;text-align:center;border-top:1px solid var(--line);}
+
+  body.locked{overflow:hidden;}
+  body.locked > *:not(#pwgate){display:none !important;}
+  #pwgate{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--font);}
+  #pwgate .box{max-width:380px;width:100%;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 28px;box-shadow:0 26px 70px -34px rgba(45,43,53,.55);}
+  #pwgate .lk{width:46px;height:46px;border-radius:50%;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;}
+  #pwgate h2{font-size:20px;margin:0 0 6px;color:var(--ink);}
+  #pwgate p{font-size:13.5px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  #pwgate input{width:100%;height:44px;border:1px solid var(--line);border-radius:11px;padding:0 14px;font-size:15px;margin-bottom:10px;box-sizing:border-box;}
+  #pwgate input:focus{outline:none;border-color:var(--accent);}
+  #pwgate button{width:100%;height:44px;border:0;border-radius:11px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;cursor:pointer;}
+  #pwgate button:hover{filter:brightness(1.06);}
+  #pwgate .err{color:#c0392b;font-size:12.5px;margin-top:10px;min-height:15px;}
+  #pwgate .back{display:inline-block;margin-top:14px;font-size:12.5px;color:var(--ink-soft);}
 </style>
 </head>
-<body>
+<body class="locked">
+<div id="pwgate">
+  <div class="box">
+    <div class="lk">&#128274;</div>
+    <h2>Protected case study</h2>
+    <p>This Meta project is password-protected. Enter the password to view it.</p>
+    <input id="pwin" type="password" placeholder="Password" autocomplete="off" autofocus />
+    <button id="pwbtn" type="button">Unlock</button>
+    <div class="err" id="pwerr"></div>
+    <a class="back" href="index.html">&#8592; Back to portfolio</a>
+  </div>
+</div>
+
 <nav><div class="wrap">
   <a class="logo" href="index.html">SUCHI<b>.</b>NAIK</a>
   <a class="back" href="index.html">← Back to portfolio</a>
@@ -457,6 +483,17 @@
     });
   });
   loadRow('profile');
+})();
+</script>
+<script>
+(function(){
+  var PASS='meta2026', KEY='meta_unlocked';
+  function unlock(){document.body.classList.remove('locked');}
+  if(sessionStorage.getItem(KEY)==='1'){unlock();}
+  var b=document.getElementById('pwbtn'),i=document.getElementById('pwin'),e=document.getElementById('pwerr');
+  function go(){ if(i.value===PASS){sessionStorage.setItem(KEY,'1');unlock();} else {e.textContent='Incorrect password. Please try again.';i.value='';i.focus();} }
+  if(b){b.addEventListener('click',go);}
+  if(i){i.addEventListener('keydown',function(ev){if(ev.key==='Enter')go();});i.focus();}
 })();
 </script>
 </body>
