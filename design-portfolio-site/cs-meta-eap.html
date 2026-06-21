@@ -77,8 +77,8 @@
     <div class="lk">&#128274;</div>
     <h2>Protected case study</h2>
     <p>This Meta project is password-protected. Enter the password to view it.</p>
-    <input id="pwin" type="password" placeholder="Password" autocomplete="off" autofocus />
-    <button id="pwbtn" type="button">Unlock</button>
+    <input id="pwin" type="password" placeholder="Password" autocomplete="off" autofocus onkeydown="if(event.key==='Enter'){event.preventDefault();cwUnlock();}" />
+    <button id="pwbtn" type="button" onclick="cwUnlock()">Unlock</button>
     <div class="err" id="pwerr"></div>
     <a class="back" href="index.html">&#8592; Back to portfolio</a>
   </div>
@@ -271,15 +271,12 @@
 </div></div>
 <footer>Case study · Business AI Early Adopter Program (India) · Suchismita Naik · Design Researcher</footer>
 <script>
-(function(){
-  var PASS='Meta@1234', KEY='meta_unlocked';
-  function unlock(){document.body.classList.remove('locked');}
-  try{ if(sessionStorage.getItem(KEY)==='1'){unlock();} }catch(_){}
-  var b=document.getElementById('pwbtn'),i=document.getElementById('pwin'),e=document.getElementById('pwerr');
-  function go(){ if(i.value.trim()===PASS){ try{sessionStorage.setItem(KEY,'1');}catch(_){} unlock(); } else {e.textContent='Incorrect password. Please try again.';i.value='';i.focus();} }
-  if(b){b.addEventListener('click',go);}
-  if(i){i.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();go();}});i.focus();}
-})();
+function cwUnlock(){
+  var i=document.getElementById('pwin'), e=document.getElementById('pwerr');
+  if(i.value.trim()==='Meta@1234'){ try{sessionStorage.setItem('meta_unlocked','1');}catch(_){} document.body.classList.remove('locked'); }
+  else { e.textContent='Incorrect password. Please try again.'; i.value=''; i.focus(); }
+}
+try{ if(sessionStorage.getItem('meta_unlocked')==='1'){document.body.classList.remove('locked');} }catch(_){}
 </script>
 </body>
 </html>
