@@ -18,160 +18,167 @@
 <meta name="twitter:title" content="Suchismita Naik — Product & Service Designer · UX Researcher · Design Strategist" />
 <meta name="twitter:description" content="12 years designing products and services used by millions — research, product craft, and AI in one person." />
 <meta name="twitter:image" content="https://design.suchismitanaik.com/og-image.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* 2026 trending soft pastels: ivory, lavender mist, powder blue, pale mint, butter, peach */
-    --bg:#fbf8f3; --bg-soft:#f1eefb; --card:#ffffff; --line:#eae4dc;
-    --ink:#2d2b35; --ink-soft:#5d626e; --ink-dim:#9aa0aa;
-    --accent:#7b6ef0; --accent-2:#2fa993; --accent-warm:#e0875f;
-    --lav:#ded7ff; --blue:#cfe6ff; --mint:#d4f0e3; --butter:#fbecb8; --peach:#ffded0;
-    --radius:16px; --max:1080px;
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    --bg:#f7f5f0; --cream:#fffdf8; --dark:#16161d; --card:#ffffff; --line:#e7e2d9;
+    --ink:#16161d; --muted:#444450; --dim:#7a7a86;
+    --a-blue:#2b50e0; --a-teal:#1f9c8a; --a-amber:#f0a23b; --a-coral:#e8634a; --a-blue2:#7e9bff;
+    --accent:#2b50e0;
+    --max:1080px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
-  h1,h2,h3{line-height:1.15;margin:0;font-weight:680;letter-spacing:-0.02em;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  h1,h2{font-family:var(--serif);font-weight:400;margin:0;line-height:1.13;letter-spacing:-0.02em;}
+  h3,h4{font-family:var(--sans);font-weight:700;margin:0;line-height:1.28;letter-spacing:-0.2px;}
   p{margin:0 0 1em;}
-  .accent{color:var(--accent);}
-  .accent-2{color:var(--accent-2);}
-  .muted{color:var(--ink-soft);}
-  .dim{color:var(--ink-dim);}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(251,248,243,0.78);border-bottom:1px solid var(--line);}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
-  .logo{font-weight:760;letter-spacing:-0.03em;font-size:18px;}
-  .logo b{color:var(--accent);}
-  .navlinks{display:flex;gap:22px;font-size:14px;}
-  .navlinks a{color:var(--ink-soft);transition:color .2s;}
+  nav{position:fixed;top:0;left:0;width:100%;z-index:40;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;}
+  nav.scrolled{background:rgba(247,245,240,0.86);backdrop-filter:blur(12px);border-bottom-color:var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .logo{font-family:var(--sans);font-weight:700;letter-spacing:-0.02em;font-size:18px;color:var(--ink);}
+  .logo b{color:var(--a-blue);}
+  .navlinks{display:flex;gap:26px;font-size:14px;}
+  .navlinks a{color:var(--muted);transition:color .2s;}
   .navlinks a:hover{color:var(--ink);}
   @media(max-width:680px){.navlinks{display:none;}}
 
   /* HERO */
-  header.hero{padding:88px 0 56px;border-bottom:1px solid var(--line);background:
-     radial-gradient(900px 400px at 12% -10%, rgba(190,176,255,0.55), transparent 62%),
-     radial-gradient(760px 380px at 92% -5%, rgba(174,214,255,0.55), transparent 58%),
-     radial-gradient(680px 420px at 60% 110%, rgba(196,238,219,0.45), transparent 60%);}
-  .eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:22px;}
-  .hero h1{font-size:clamp(34px,6vw,60px);max-width:14ch;}
-  .hero .lede{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:60ch;margin-top:24px;}
-  .hero .lede strong{color:var(--ink);font-weight:620;}
-  .hero .meta{margin-top:26px;font-size:14px;color:var(--ink-dim);}
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;}
-  .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:560;border:1px solid var(--line);transition:.2s;}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
-  .btn.primary:hover{filter:brightness(1.08);}
-  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+  header.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--bg);padding:100px 0;}
+  .hero-bg{position:absolute;inset:0;z-index:1;pointer-events:none;}
+  #constellation{display:block;width:100%;height:100%;}
+  .hero-col{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:0 28px;text-align:left;}
+  .eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--dim);line-height:1.6;letter-spacing:3px;text-transform:uppercase;margin:0;}
+  .eyebrow::before{content:"";display:inline-block;width:28px;height:2px;background:var(--a-coral);vertical-align:middle;margin-right:14px;position:relative;top:-1px;}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7.6vw,92px);letter-spacing:-1px;line-height:1.04;color:var(--ink);margin:18px 0 6px;}
+  .hero h1 .last{color:var(--a-blue);font-style:italic;}
+  .hero .lede{font-family:var(--sans);font-size:clamp(20px,2.3vw,24px);font-weight:500;color:var(--muted);max-width:640px;margin:14px 0 0;line-height:1.6;}
+  .hero .lede strong{color:var(--ink);font-weight:600;}
+  .hero .ai-line{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--dim);max-width:640px;margin:14px 0 0;line-height:1.6;}
+  .pills{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-top:28px;}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:100px;background:rgba(255,255,255,0.6);border:1px solid #e3ded3;font-family:var(--sans);font-size:13px;color:var(--muted);}
+  .pill .d{width:7px;height:7px;border-radius:50%;flex:0 0 auto;}
+  .scroll-cue{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);z-index:2;display:inline-flex;flex-direction:column;align-items:center;gap:9px;font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);}
+  .scroll-cue .line{width:1px;height:38px;background:linear-gradient(var(--dim),rgba(122,122,134,0));animation:scrollpulse 1.9s ease-in-out infinite;transform-origin:top;}
+  @keyframes scrollpulse{0%,100%{transform:scaleY(.45);opacity:.35;}50%{transform:scaleY(1);opacity:1;}}
 
-  /* STAT STRIP */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;}
-  .stat .n{font-size:30px;font-weight:720;letter-spacing:-0.03em;}
-  .stat .l{font-size:13px;color:var(--ink-dim);margin-top:4px;}
-  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr);}}
+  /* STAT BAND (dark) */
+  .statband{background:var(--dark);padding:66px 0;}
+  .statband .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+  @media(max-width:680px){.statband .stats{grid-template-columns:1fr 1fr;gap:36px 24px;}}
+  .statband .stat .n{font-family:var(--serif);font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.05;letter-spacing:-0.5px;}
+  .statband .stat .l{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.4;}
+  .statband .stat:nth-child(1) .n{color:var(--a-amber);}
+  .statband .stat:nth-child(2) .n{color:var(--a-teal);}
+  .statband .stat:nth-child(3) .n{color:var(--a-blue2);}
+  .statband .stat:nth-child(4) .n{color:var(--a-coral);}
 
   /* SECTIONS */
-  section{padding:72px 0;border-bottom:1px solid var(--line);}
-  .sec-head{margin-bottom:34px;}
-  .sec-kicker{font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
-  .sec-head h2{font-size:clamp(26px,3.6vw,38px);max-width:20ch;}
-  .sec-head p{margin-top:14px;color:var(--ink-soft);max-width:64ch;}
+  section{padding:92px 0;border-bottom:1px solid var(--line);background:var(--bg);position:relative;}
+  #path{background:var(--cream);}
+  #path::before,#caps-sec::before,#contact::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,#2b50e0,#1f9c8a,#f0a23b,#e8634a);}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  .sec-head{margin-bottom:40px;}
+  .sec-kicker{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
+  .sec-kicker::before{content:"";display:inline-block;width:28px;height:2px;background:var(--a-coral);vertical-align:middle;margin-right:14px;position:relative;top:-1px;}
+  .sec-head h2{font-size:clamp(30px,4.6vw,46px);letter-spacing:-0.5px;max-width:22ch;}
+  .sec-head p{font-family:var(--sans);margin-top:16px;color:var(--dim);max-width:64ch;font-size:16px;line-height:1.65;}
+  .sec-head p em{font-style:italic;color:var(--ink);}
 
-  /* STORY two-col */
+  /* STORY */
   .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   @media(max-width:760px){.story-grid{grid-template-columns:1fr;}}
-  .phase{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
-  .phase .tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
-  .phase.h .tag{color:var(--accent-2);}
-  .phase.s .tag{color:var(--accent);}
-  .phase h3{font-size:20px;margin:10px 0 8px;}
-  .phase p{color:var(--ink-soft);font-size:15px;margin:0;}
-  .phase ul{margin:14px 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px;}
+  .phase .tag{font-family:var(--sans);font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:600;}
+  .phase.h .tag{color:var(--a-teal);}
+  .phase.s .tag{color:var(--a-blue);}
+  .phase h3{font-size:20px;margin:12px 0 10px;}
+  .phase p{font-family:var(--sans);color:var(--muted);font-size:15px;margin:0;}
+  .phase p em{font-style:italic;color:var(--ink);}
+  .phase ul{margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:14px;font-family:var(--sans);}
   .phase li{margin-bottom:6px;}
 
-  /* WORK CARDS */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
   @media(max-width:760px){.grid{grid-template-columns:1fr;}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;}
-  .card:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column;transition:.22s;position:relative;overflow:hidden;cursor:pointer;}
+  .card:hover{border-color:var(--a-blue);transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(22,22,29,.4);}
   .card .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-  .chip{font-size:11.5px;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line);color:var(--ink-soft);}
-  .chip.hot{border-color:rgba(124,140,255,.5);color:var(--accent);}
-  .card h3{font-size:20px;margin-bottom:10px;}
-  .card p{color:var(--ink-soft);font-size:14.5px;flex-grow:1;}
-  .card .link{margin-top:16px;font-size:14px;color:var(--accent);font-weight:560;}
-  /* whole card clickable via stretched link */
-  .card{cursor:pointer;}
+  .chip{font-family:var(--sans);font-size:11.5px;letter-spacing:.03em;padding:4px 11px;border-radius:999px;background:#f3f1ec;border:1px solid var(--line);color:var(--muted);}
+  .chip.hot{border-color:rgba(43,80,224,.35);color:var(--a-blue);background:rgba(43,80,224,.06);}
+  .card .role{font-family:var(--sans);font-size:12.5px;color:var(--dim);margin-bottom:12px;}
+  .card h3{font-family:var(--sans);font-weight:700;font-size:19px;color:var(--ink);margin-bottom:10px;line-height:1.3;letter-spacing:-0.2px;}
+  .card p{font-family:var(--sans);color:var(--muted);font-size:14.5px;flex-grow:1;}
+  .card .link{font-family:var(--sans);margin-top:16px;font-size:14px;color:var(--a-blue);font-weight:500;}
   .card .link::after{content:"";position:absolute;inset:0;z-index:1;}
-  .card .role{font-size:12.5px;color:var(--ink-dim);margin-bottom:14px;}
-  /* card banner image */
-  .card-img{margin:-26px -26px 18px;height:260px;overflow:hidden;border-bottom:1px solid var(--line);background:#f1eefb;}
+  .card-img{margin:-26px -26px 18px;height:260px;overflow:hidden;border-bottom:1px solid var(--line);background:#efece6;}
   .card-img img,.card-img svg{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-  /* featured card: text left, square image right */
-  .card.feat-row{flex-direction:row;align-items:flex-start;gap:28px;}
+  .card.feat-row{flex-direction:row;align-items:flex-start;gap:30px;}
   .feat-row .feat-text{flex:1;min-width:0;display:flex;flex-direction:column;}
   .feat-row .feat-sq{flex-shrink:0;width:360px;max-width:100%;}
-  .feat-row .feat-sq img,.feat-row .feat-sq svg{width:100%;height:auto;display:block;}
+  .feat-row .feat-sq img,.feat-row .feat-sq svg{width:100%;height:auto;display:block;border-radius:8px;}
   @media(max-width:680px){.card.feat-row{flex-direction:column;} .feat-row .feat-sq{width:100%;}}
-  /* responsibilities + impact blocks */
-  .ri{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 2px;border-top:1px solid var(--line);padding-top:14px;}
-  .ri-lab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:7px;}
-  .ri-block.impact .ri-lab{color:var(--accent-2);}
-  .ri-block ul{margin:0;padding-left:15px;}
-  .ri-block li{font-size:13px;color:var(--ink-soft);margin-bottom:6px;line-height:1.45;}
-  .ri-block li b{color:var(--ink);font-weight:650;}
-  @media(max-width:520px){.ri{grid-template-columns:1fr;gap:12px;}}
-
-  /* PLACEHOLDER / NEW PROJECT CARDS */
-  .new-card{background:linear-gradient(180deg,rgba(124,140,255,.06),transparent);border:1px dashed var(--line);}
-  .new-card .status{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-warm);border:1px solid rgba(255,154,107,.4);border-radius:999px;padding:3px 9px;margin-bottom:14px;}
-  .brief{margin-top:14px;border-top:1px solid var(--line);padding-top:14px;}
-  .brief dt{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin-top:10px;}
-  .brief dd{margin:3px 0 0;font-size:14px;color:var(--ink-soft);}
-  .brief dd:first-of-type{margin-top:0;}
-  .targets{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;}
-  .targets .t{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line);color:var(--accent-2);}
 
   /* TIMELINE */
-  .tl{display:grid;grid-template-columns:120px 1fr;gap:0;}
-  @media(max-width:680px){.tl{grid-template-columns:80px 1fr;}}
-  .tl .row{display:contents;}
-  .tl .yr{color:var(--ink-dim);font-size:14px;padding:16px 0;border-top:1px solid var(--line);}
-  .tl .body{padding:16px 0;border-top:1px solid var(--line);}
-  .tl .body h3{font-size:17px;}
-  .tl .body .org{color:var(--accent);font-size:14px;margin:2px 0 6px;}
-  .tl .body p{color:var(--ink-soft);font-size:14px;margin:0;}
-  .tl .body .kind{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);}
+  .tl{position:relative;}
+  .tl::before{content:"";position:absolute;left:104px;top:8px;bottom:8px;width:1px;background:var(--line);}
+  @media(max-width:680px){.tl::before{left:74px;}}
+  .tl .row{position:relative;display:grid;grid-template-columns:104px 1fr;gap:40px;padding:18px 0;align-items:start;}
+  @media(max-width:680px){.tl .row{grid-template-columns:74px 1fr;gap:28px;}}
+  .tl .yr{font-family:var(--sans);color:var(--dim);font-size:13px;text-align:right;padding-top:1px;padding-right:24px;}
+  .tl .node{position:absolute;left:104px;top:24px;width:11px;height:11px;border-radius:50%;background:var(--cream);border:2px solid var(--a-blue);transform:translate(-50%,-50%);z-index:1;}
+  @media(max-width:680px){.tl .node{left:74px;}}
+  .tl .row.cat-hands .node{border-color:var(--a-teal);}
+  .tl .row.cat-foundation .node{border-color:var(--a-amber);}
+  .tl .body h3{font-size:18px;}
+  .tl .body .org{font-family:var(--sans);color:var(--a-blue);font-size:14px;margin:3px 0 7px;}
+  .tl .body p{font-family:var(--sans);color:var(--muted);font-size:14px;margin:0 0 11px;line-height:1.55;}
+  .tl .body .kind{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:3px 11px;border-radius:999px;background:rgba(43,80,224,.08);color:var(--a-blue);}
+  .tl .row.cat-hands .kind{background:rgba(31,156,138,.1);color:var(--a-teal);}
+  .tl .row.cat-foundation .kind{background:rgba(240,162,59,.14);color:#b97a16;}
 
   /* CAPABILITIES */
-  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   @media(max-width:760px){.caps{grid-template-columns:1fr;}}
-  .cap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
-  .cap h3{font-size:17px;margin-bottom:10px;}
-  .cap p{font-size:14px;color:var(--ink-soft);margin:0;}
-  .cap .tools{margin-top:14px;font-size:13px;color:var(--ink-dim);}
+  .cap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;}
+  .cap .num{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--sans);font-weight:700;font-size:16px;margin-bottom:18px;}
+  .cap:nth-child(1) .num{background:var(--a-blue);}
+  .cap:nth-child(2) .num{background:var(--a-teal);}
+  .cap:nth-child(3) .num{background:var(--a-coral);}
+  .cap h3{font-size:18px;margin-bottom:10px;}
+  .cap p{font-family:var(--sans);font-size:14px;color:var(--muted);margin:0;}
+  .cap .tools{font-family:var(--sans);margin-top:14px;font-size:13px;color:var(--dim);}
 
-  /* CONTACT */
-  .contact{text-align:center;background:
-    radial-gradient(620px 300px at 30% 0%, rgba(190,176,255,.5), transparent 62%),
-    radial-gradient(620px 300px at 75% 10%, rgba(196,238,219,.5), transparent 62%);}
-  .contact h2{font-size:clamp(26px,4vw,40px);max-width:18ch;margin:0 auto 18px;}
-  .contact p{color:var(--ink-soft);max-width:52ch;margin:0 auto 28px;}
-  footer{padding:32px 0;color:var(--ink-dim);font-size:13px;text-align:center;}
-  .note{background:#fff7e6;border:1px solid #f1e3bf;border-left:3px solid var(--accent-warm);border-radius:10px;padding:14px 18px;font-size:13.5px;color:#6b5f44;margin-bottom:30px;}
-  /* gentle pastel washes per section for trending soft-pastel feel */
-  #story{background:linear-gradient(180deg, rgba(207,230,255,.38), transparent 70%);}
-  #strategy{background:linear-gradient(180deg, rgba(212,240,227,.45), transparent 70%);}
-  #next{background:linear-gradient(180deg, rgba(255,222,208,.40), transparent 72%);}
-  #path{background:linear-gradient(180deg, rgba(251,236,184,.38), transparent 70%);}
-  #caps-sec{background:linear-gradient(180deg, rgba(222,215,255,.42), transparent 70%);}
+  /* CONTACT (dark) */
+  #contact.contact{background:var(--dark);text-align:left;border-bottom:none;}
+  .contact .wrap{max-width:720px;}
+  .contact .sec-kicker{color:rgba(255,255,255,0.55);}
+  .contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.2vw,64px);color:var(--bg);max-width:20ch;margin:0 0 22px;line-height:1.1;letter-spacing:-0.8px;}
+  .contact h2 .amber-it{color:var(--a-amber);font-style:italic;}
+  .contact p{font-family:var(--sans);color:#b9b7b0;max-width:56ch;margin:0 0 32px;font-size:16px;line-height:1.6;}
+  .contact-links{display:flex;flex-wrap:wrap;gap:12px;}
+  .contact-links a{font-family:var(--sans);font-size:14px;font-weight:600;padding:13px 24px;border-radius:100px;border:1px solid rgba(255,255,255,0.22);color:var(--bg);transition:.2s;}
+  .contact-links a:hover{background:rgba(255,255,255,0.1);}
+  .contact-links a.primary{background:var(--a-amber);border-color:var(--a-amber);color:var(--ink);}
+  .contact-links a.primary:hover{background:var(--a-amber);opacity:.9;}
+
+  footer{background:var(--bg);padding:32px 0 44px;color:var(--dim);font-family:var(--sans);font-size:13px;text-align:center;}
+
+  @media(prefers-reduced-motion:reduce){.scroll-cue .line{animation:none;}}
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="wrap">
     <div class="logo">SUCHI<b>.</b>NAIK</div>
     <div class="navlinks">
@@ -185,17 +192,31 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Product &amp; Service Designer · UX Researcher · Design Strategist · AI Products · Data storytelling</div>
-    <h1>Suchismita Naik</h1>
+  <div class="hero-bg" aria-hidden="true">
+    <canvas id="constellation"></canvas>
+  </div>
+  <div class="hero-col">
+    <div class="eyebrow">UX Designer / Researcher · Design Strategist · AI Products</div>
+    <h1>Suchismita <span class="last">Naik</span></h1>
     <p class="lede">I work at the seam where <strong>human-centered research, product craft, and AI meet</strong> — turning real human insight into high-fidelity products that ship. Research and craft, in one person.</p>
-    <p style="font-size:15.5px;color:var(--accent);font-weight:560;max-width:62ch;margin-top:-4px;">An AI-native designer — I design <em>for</em> AI (agents, trust, non-deterministic interaction) and <em>with</em> AI (GenAI prototyping &amp; vibe-coded interactive demos).</p>
-    <div class="meta">Designer · ex-Meta &amp; Microsoft · M.Des, NID · Menlo Park, CA</div>
-    <div class="cta-row">
-      <a class="btn primary" href="#work">See the work</a>
-      <a class="btn ghost" href="mailto:naik.suchismita@gmail.com">Get in touch</a>
+    <p class="ai-line">An AI-native designer — I design <em>for</em> AI (agents, trust, non-deterministic interaction) and <em>with</em> AI (GenAI prototyping &amp; vibe-coded interactive demos).</p>
+    <div class="pills">
+      <span class="pill"><span class="d" style="background:#2b50e0"></span>UX · Meta</span>
+      <span class="pill"><span class="d" style="background:#1f9c8a"></span>ex-Microsoft Research</span>
+      <span class="pill"><span class="d" style="background:#f0a23b"></span>PhD HCI/AI-UX</span>
+      <span class="pill"><span class="d" style="background:#e8634a"></span>M.Des NID</span>
     </div>
+  </div>
 
+  <a class="scroll-cue" href="#story" aria-label="Scroll to content">
+    <span>Scroll</span>
+    <span class="line"></span>
+  </a>
+</header>
+
+<!-- STAT BAND -->
+<section class="statband">
+  <div class="wrap">
     <div class="stats">
       <div class="stat"><div class="n">12 yrs</div><div class="l">design &amp; design strategy</div></div>
       <div class="stat"><div class="n">Millions</div><div class="l">of users on shipped products</div></div>
@@ -203,7 +224,7 @@
       <div class="stat"><div class="n">Awarded</div><div class="l">data-viz exhibited at EuroVis</div></div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- STORY -->
 <section id="story">
@@ -244,13 +265,13 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">Selected work · AI</div>
+      <div class="sec-kicker">Selected AI design work</div>
       <h2>AI product design and strategy</h2>
       <p>The AI half of my practice: defining what AI products should <em>be</em>, prototyping how people and intelligent systems interact, and shaping product direction, behavior, and trust — research through to shipped design.</p>
     </div>
     <div class="grid">
 
-      <div class="card feat-row" style="grid-column:1/-1;border-color:var(--accent);background:#fff;">
+      <div class="card feat-row" style="grid-column:1/-1;border-color:var(--a-blue);background:#fff;">
         <div class="feat-text">
         <div class="badges"><span class="chip hot">AI · Multi-agent</span><span class="chip">Research-through-design</span><span class="chip">Vibe-coded prototypes</span><span class="chip">Interactive</span></div>
         <div class="role">Lead Designer &amp; Researcher · PhD, Purdue · 2021–26</div>
@@ -284,7 +305,7 @@
 <section id="strategy">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">Selected work</div>
+      <div class="sec-kicker">Selected Product design work</div>
       <h2>Products, Services &amp; design systems I built</h2>
       <p>Consumer products and services taken from concept to launch, plus the visual and data-design craft underneath them — across mobile, web, and tablet.</p>
     </div>
@@ -344,14 +365,14 @@
       <h2>From shipping pixels to shaping AI products</h2>
     </div>
     <div class="tl">
-      <div class="row"><div class="yr">2025 — now</div><div class="body"><div class="kind">Design Strategy</div><h3>Design Strategy / UX — AI products</h3><div class="org">Meta · Menlo Park, CA</div><p>Shaping AI product direction for WhatsApp Business — modality, behavior, trust, and monetization across markets.</p></div></div>
-      <div class="row"><div class="yr">2024</div><div class="body"><div class="kind">Design Strategy</div><h3>UX — Multi-agent GenAI</h3><div class="org">Microsoft Research · Redmond, WA</div><p>Defined interaction direction for early adopters of multi-agent generative AI tools.</p></div></div>
-      <div class="row"><div class="yr">2021 — 25</div><div class="body"><div class="kind">Design Strategy</div><h3>PhD, HCI / UX — Human–AI interaction</h3><div class="org">Purdue University · Andrews Fellow</div><p>Multi-agent design patterns, human–AI trust, and mental models — the strategic foundation under AI product design.</p></div></div>
-      <div class="row"><div class="yr">2020 — 21</div><div class="body"><div class="kind">Hands-on design</div><h3>Lead Designer</h3><div class="org">Gramener · Bangalore</div><p>Led data-product design — turning client data into decision-driving visual interfaces and systems.</p></div></div>
-      <div class="row"><div class="yr">2018 — 20</div><div class="body"><div class="kind">Hands-on design</div><h3>Design Strategist</h3><div class="org">Conduent Labs (Xerox Research Centre India)</div><p>Bridged emerging technology and real-world user needs through applied design.</p></div></div>
-      <div class="row"><div class="yr">2016 — 18</div><div class="body"><div class="kind">Hands-on design</div><h3>UX / Product Designer</h3><div class="org">1mg Technologies · Gurugram</div><p>Designed and shipped the patient–doctor e-healthcare ecosystem, including conversational e-consultation.</p></div></div>
-      <div class="row"><div class="yr">2014 — 16</div><div class="body"><div class="kind">Foundation</div><h3>M.Des — Information &amp; UX Design</h3><div class="org">National Institute of Design</div><p>Design research, information design, and data storytelling.</p></div></div>
-      <div class="row"><div class="yr">2008 — 13</div><div class="body"><div class="kind">Foundation</div><h3>B.E. (Hons.) &amp; M.Sc. (Hons.)</h3><div class="org">BITS Pilani</div><p>The analytical bedrock under the design.</p></div></div>
+      <div class="row cat-strategy reveal"><div class="yr">2025 — now</div><span class="node"></span><div class="body"><h3>Design Strategy / UX — AI products</h3><div class="org">Meta · Menlo Park, CA</div><p>Shaping AI product direction for WhatsApp Business — modality, behavior, trust, and monetization across markets.</p><span class="kind">Design Strategy</span></div></div>
+      <div class="row cat-strategy reveal"><div class="yr">2024</div><span class="node"></span><div class="body"><h3>UX — Multi-agent GenAI</h3><div class="org">Microsoft Research · Redmond, WA</div><p>Defined interaction direction for early adopters of multi-agent generative AI tools.</p><span class="kind">Design Strategy</span></div></div>
+      <div class="row cat-strategy reveal"><div class="yr">2021 — 25</div><span class="node"></span><div class="body"><h3>PhD, HCI / UX — Human–AI interaction</h3><div class="org">Purdue University · Andrews Fellow</div><p>Multi-agent design patterns, human–AI trust, and mental models — the strategic foundation under AI product design.</p><span class="kind">Design Strategy</span></div></div>
+      <div class="row cat-hands reveal"><div class="yr">2020 — 21</div><span class="node"></span><div class="body"><h3>Lead Designer</h3><div class="org">Gramener · Bangalore</div><p>Led data-product design — turning client data into decision-driving visual interfaces and systems.</p><span class="kind">Hands-on design</span></div></div>
+      <div class="row cat-hands reveal"><div class="yr">2018 — 20</div><span class="node"></span><div class="body"><h3>Design Strategist</h3><div class="org">Conduent Labs (Xerox Research Centre India)</div><p>Bridged emerging technology and real-world user needs through applied design.</p><span class="kind">Hands-on design</span></div></div>
+      <div class="row cat-hands reveal"><div class="yr">2016 — 18</div><span class="node"></span><div class="body"><h3>UX / Product Designer</h3><div class="org">1mg Technologies · Gurugram</div><p>Designed and shipped the patient–doctor e-healthcare ecosystem, including conversational e-consultation.</p><span class="kind">Hands-on design</span></div></div>
+      <div class="row cat-foundation reveal"><div class="yr">2014 — 16</div><span class="node"></span><div class="body"><h3>M.Des — Information &amp; UX Design</h3><div class="org">National Institute of Design</div><p>Design research, information design, and data storytelling.</p><span class="kind">Foundation</span></div></div>
+      <div class="row cat-foundation reveal"><div class="yr">2008 — 13</div><span class="node"></span><div class="body"><h3>B.E. (Hons.) &amp; M.Sc. (Hons.)</h3><div class="org">BITS Pilani</div><p>The analytical bedrock under the design.</p><span class="kind">Foundation</span></div></div>
     </div>
   </div>
 </section>
@@ -364,17 +385,20 @@
       <h2>Capabilities &amp; tools</h2>
     </div>
     <div class="caps">
-      <div class="cap">
+      <div class="cap reveal">
+        <div class="num">01</div>
         <h3>Design craft</h3>
         <p>User flows, wireframes, interactive prototypes, and high-fidelity UI across mobile, tablet, and web — from concept to spec delivery.</p>
         <div class="tools">Figma · Adobe Creative Suite · prototyping · design systems</div>
       </div>
-      <div class="cap">
+      <div class="cap reveal">
+        <div class="num">02</div>
         <h3>AI &amp; emerging tech</h3>
         <p>Designing for non-deterministic, agentic AI; building prototypes with GenAI / vibe-coding tools; comfortable in fast-moving, ambiguous AI spaces.</p>
         <div class="tools">GenAI tooling · agentic UX · conversational UI · AI-trust patterns</div>
       </div>
-      <div class="cap">
+      <div class="cap reveal">
+        <div class="num">03</div>
         <h3>Strategy &amp; storytelling</h3>
         <p>Translating abstract concepts into clear design rationale, and using data &amp; narrative to challenge product thinking and align teams.</p>
         <div class="tools">Design strategy · data viz · rationale &amp; presentation · research synthesis</div>
@@ -386,13 +410,15 @@
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Let's design what AI products should feel like.</h2>
-    <p>Building an AI product, an interaction-design practice, or just want to talk craft and humans? I'd love to hear from you.</p>
-    <div class="cta-row" style="justify-content:center;">
-      <a class="btn primary" href="mailto:naik.suchismita@gmail.com">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/suchismitanaik/">LinkedIn</a>
-      <a class="btn ghost" href="https://www.behance.net/Suchismitanaik">Behance</a>
-      <a class="btn ghost" href="https://vimeo.com/suchismitanaik">Vimeo (motion)</a>
+    <div class="sec-kicker">Let's talk</div>
+    <h2>The shortest distance between truth and a person is a <span class="amber-it">story.</span></h2>
+    <p>Researching AI products, building a UX research practice, or just want to talk data and humans? I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a class="primary" href="mailto:naik.suchismita@gmail.com">Email me</a>
+      <a href="https://www.linkedin.com/in/suchismitanaik/">LinkedIn</a>
+      <a href="https://oldversion.suchismitanaik.com/about-me">About me</a>
+      <a href="https://www.behance.net/Suchismitanaik">Behance</a>
+      <a href="https://vimeo.com/suchismitanaik">Vimeo</a>
     </div>
   </div>
 </section>
@@ -401,5 +427,66 @@
   Designed as a living portfolio · Suchismita Naik · Product &amp; Interaction Designer
 </footer>
 
+<script>
+/* nav background on scroll */
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){ if(window.scrollY>40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+})();
+
+/* constellation background */
+(function(){
+  var canvas=document.getElementById('constellation'); if(!canvas) return;
+  var ctx=canvas.getContext('2d');
+  var hero=canvas.closest('header')||canvas.parentElement;
+  var colors=['#2b50e0','#1f9c8a','#f0a23b','#e8634a','#7e9bff','#b97a16'];
+  var pts=[], W=0, H=0, DPR=Math.min(window.devicePixelRatio||1,2), raf;
+  function size(){ W=hero.offsetWidth; H=hero.offsetHeight; canvas.width=W*DPR; canvas.height=H*DPR; canvas.style.width=W+'px'; canvas.style.height=H+'px'; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  function init(){ size(); var n=Math.round(Math.min(92, W*H/15000)); pts=[]; for(var i=0;i<n;i++){ pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*0.22,vy:(Math.random()-.5)*0.22,r:Math.random()*2+1.1,c:colors[Math.floor(Math.random()*colors.length)],a:Math.random()*0.45+0.4}); } }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){ for(var j=i+1;j<pts.length;j++){ var dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy); if(d<125){ ctx.strokeStyle='rgba(120,120,134,'+(0.10*(1-d/125))+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.stroke(); } } }
+    for(var k=0;k<pts.length;k++){ var p=pts[k]; ctx.globalAlpha=p.a; ctx.fillStyle=p.c; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
+    ctx.globalAlpha=1;
+  }
+  function step(){ for(var k=0;k<pts.length;k++){ var p=pts[k]; p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1; } draw(); raf=requestAnimationFrame(step); }
+  init();
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ draw(); }
+  else { step(); }
+  var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(init,200); });
+})();
+
+/* stat count-up */
+(function(){
+  var nums=document.querySelectorAll('.statband .stat .n');
+  nums.forEach(function(n){ n.setAttribute('data-val', n.textContent); });
+  function animate(el){
+    var raw=el.getAttribute('data-val')||el.textContent;
+    var m=raw.match(/^(\D*)(\d+)(.*)$/);
+    if(!m){ el.style.opacity=0; requestAnimationFrame(function(){ el.style.transition='opacity .8s ease'; el.style.opacity=1; }); return; }
+    var pre=m[1], target=parseInt(m[2],10), post=m[3], dur=1100, t0=null;
+    el.textContent=pre+'0'+post;
+    function s(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3); el.textContent=pre+Math.round(e*target)+post; if(p<1) requestAnimationFrame(s); }
+    requestAnimationFrame(s);
+  }
+  function run(){ nums.forEach(animate); }
+  if('IntersectionObserver' in window){
+    var done=false;
+    var io=new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting && !done){ done=true; run(); io.disconnect(); } }); });
+    var strip=document.querySelector('.statband');
+    if(strip){ io.observe(strip); } else { run(); }
+  } else { run(); }
+})();
+
+/* reveal on scroll */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(ents){ ents.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e,i){ e.style.transitionDelay=((i%5)*70)+'ms'; io.observe(e); });
+})();
+</script>
 </body>
 </html>
